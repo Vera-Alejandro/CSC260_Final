@@ -14,7 +14,7 @@ namespace BattleShip_FinalProject
         }
 
         public override void Place()
-        {
+        { 
             throw new NotImplementedException();
         }
     }

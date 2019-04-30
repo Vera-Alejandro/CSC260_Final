@@ -22,14 +22,14 @@ namespace BattleShip_FinalProject
             {
                 for (int y = 0; y < 10; y++)
                 {
-                    board[x,y] = 'E';
+                    board[x, y] = 'E';
                 }
 
             }
 
         }
-   
 
+       
         
         
         
