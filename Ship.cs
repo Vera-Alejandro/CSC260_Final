@@ -13,7 +13,6 @@ namespace BattleShip_FinalProject
         public int Width { get; set; }
         public int Hits { get; set; }
         public ShipType ShipType { get; set; }
-        public bool isFloating { get; set; }
         public bool IsSunk
         {
             get
@@ -71,5 +70,15 @@ namespace BattleShip_FinalProject
             Width = 2;
             ShipType = ShipType.Destoryer;
         }
+    }
+
+    public enum ShipType
+    {
+        Carrier = 50,
+        Battleship = 40,
+        Submarine = 31,
+        Cruiser = 30,
+        Destoryer = 20,
+        Empty = 'E'
     }
 }

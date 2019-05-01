@@ -15,32 +15,39 @@ namespace BattleShip_FinalProject
 
         }
 
-        private void Start_Click(object sender, EventArgs e)
+        public void Start_Click(object sender, EventArgs e)
         {
-            //first thing I need to do is set the battleship images visible
-            ViewAll();
-            
+
             //prompt user to click ship
             Output.AppendText("Place the ships by click on the ship and then the respective box\n");
 
-            //start game
+            //create players
+            Player user = new Player("User");
+            Player AI = new Player("Computer");
 
+            //strt game
+            Game PlayBattleship = new Game(user, AI);
 
+            //Place Ships in order by Carrier, Battleship, Cruiser, Submarine, Destoryer          
+            
+            //first thing I need to do is set the battleship images visible
+            Carrier.Visible = true;
+            Carrier.Location = new System.Drawing.Point(15, 15);
+            ShowGrid();
+            user.PlaceShips(user.Carrier);
 
+            //after the placing function move the carrier back to the origional location
+
+            
+            
 
 
 
         }
 
         //function to set ships
-        public void ViewAll()
-        {
-            //show ships
-            Carrier.Visible = true;
-            Battleship.Visible = true;
-            Cruiser.Visible = true;
-            Submarine.Visible = true;
-            Destroyer.Visible = true;
+        public void ShowGrid()
+        { 
             //show labels
             A_Label.Visible = true;
             B_Label.Visible = true;
@@ -167,20 +174,18 @@ namespace BattleShip_FinalProject
             J10.Visible = true;
         }
 
-        private void A_Label_Click(object sender, EventArgs e)
+        void A_Label_Click(object sender, EventArgs e)
         {
 
         }
 
-        //change later to be more descript
-        private enum PlayerHitStaus
+        public void ButtonPressed()
         {
-            //this is the same as 1
-            //PlayerHitStaus.hit == 1
-            hit = 1,
-            //I could use this enum to place a x mark over the hit markers
+            //every button is assigned a value 
 
         }
+
+
 
         //this function is working, Yay!
         private void Destroyer_MouseHover(object sender, EventArgs e)
@@ -188,6 +193,8 @@ namespace BattleShip_FinalProject
             Output.Clear();
             Output.AppendText("Hover is working. Coninute to use in buttons");
         }
+
+
 
         //placing ships
         #region Ship Functions
@@ -203,6 +210,16 @@ namespace BattleShip_FinalProject
             Submarine.Location = new System.Drawing.Point(315, 150);
             Battleship.Location = new System.Drawing.Point(280, 250);
             Cruiser.Location = new System.Drawing.Point(230, 330);
+
+            //ship has been selected
+
+
+
+
+            //for orientation I should add to the column or row 
+
+
+
 
             //how would I go about rotating it
             //I could have a variable and a button that is use to change the orientation of the ship
@@ -271,11 +288,7 @@ namespace BattleShip_FinalProject
 
         }
 
-
-
         #endregion
-
-
 
         //for buttons I want the screen to show where each ship is placed
         //maybe move the image over the button and disable the button so it cannot be placed
@@ -283,43 +296,43 @@ namespace BattleShip_FinalProject
 
         #region A Row
 
-        private void A1_Click(object sender, EventArgs e)
+        public void A1_Click(object sender, EventArgs e)
         {
 
         }
-        private void A2_Click(object sender, EventArgs e)
+        public void A2_Click(object sender, EventArgs e)
         {
 
         }
-        private void A3_Click(object sender, EventArgs e)
+        public void A3_Click(object sender, EventArgs e)
         {
 
         }
-        private void A4_Click(object sender, EventArgs e)
+        public void A4_Click(object sender, EventArgs e)
         {
 
         }
-        private void A5_Click(object sender, EventArgs e)
+        public void A5_Click(object sender, EventArgs e)
         {
 
         }
-        private void A6_Click(object sender, EventArgs e)
+        public void A6_Click(object sender, EventArgs e)
         {
 
         }
-        private void A7_Click(object sender, EventArgs e)
+        public void A7_Click(object sender, EventArgs e)
         {
 
         }
-        private void A8_Click(object sender, EventArgs e)
+        public void A8_Click(object sender, EventArgs e)
         {
 
         }
-        private void A9_Click(object sender, EventArgs e)
+        public void A9_Click(object sender, EventArgs e)
         {
 
         }
-        private void A10_Click(object sender, EventArgs e)
+        public void A10_Click(object sender, EventArgs e)
         {
 
         }
@@ -329,43 +342,43 @@ namespace BattleShip_FinalProject
 
         #region B Row
 
-        private void B1_Click(object sender, EventArgs e)
+        public void B1_Click(object sender, EventArgs e)
         {
 
         }
-        private void B2_Click(object sender, EventArgs e)
+        public void B2_Click(object sender, EventArgs e)
         {
 
         }
-        private void B3_Click(object sender, EventArgs e)
+        public void B3_Click(object sender, EventArgs e)
         {
 
         }
-        private void B4_Click(object sender, EventArgs e)
+        public void B4_Click(object sender, EventArgs e)
         {
 
         }
-        private void B5_Click(object sender, EventArgs e)
+        public void B5_Click(object sender, EventArgs e)
         {
 
         }
-        private void B6_Click(object sender, EventArgs e)
+        public void B6_Click(object sender, EventArgs e)
         {
 
         }
-        private void B7_Click(object sender, EventArgs e)
+        public void B7_Click(object sender, EventArgs e)
         {
 
         }
-        private void B8_Click(object sender, EventArgs e)
+        public void B8_Click(object sender, EventArgs e)
         {
 
         }
-        private void B9_Click(object sender, EventArgs e)
+        public void B9_Click(object sender, EventArgs e)
         {
 
         }
-        private void B10_Click(object sender, EventArgs e)
+        public void B10_Click(object sender, EventArgs e)
         {
 
         }
@@ -375,44 +388,44 @@ namespace BattleShip_FinalProject
 
         #region C Row
 
-        private void C1_Click(object sender, EventArgs e)
+        public void C1_Click(object sender, EventArgs e)
         {
 
         }
-        private void C2_Click(object sender, EventArgs e)
+        public void C2_Click(object sender, EventArgs e)
         {
 
         }
-        private void C3_Click(object sender, EventArgs e)
+        public void C3_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void C4_Click(object sender, EventArgs e)
+        public void C4_Click(object sender, EventArgs e)
         {
 
         }
-        private void C5_Click(object sender, EventArgs e)
+        public void C5_Click(object sender, EventArgs e)
         {
 
         }
-        private void C6_Click(object sender, EventArgs e)
+        public void C6_Click(object sender, EventArgs e)
         {
 
         }
-        private void C7_Click(object sender, EventArgs e)
+        public void C7_Click(object sender, EventArgs e)
         {
 
         }
-        private void C8_Click(object sender, EventArgs e)
+        public void C8_Click(object sender, EventArgs e)
         {
 
         }
-        private void C9_Click(object sender, EventArgs e)
+        public void C9_Click(object sender, EventArgs e)
         {
 
         }
-        private void C10_Click(object sender, EventArgs e)
+        public void C10_Click(object sender, EventArgs e)
         {
 
         }
@@ -422,43 +435,43 @@ namespace BattleShip_FinalProject
 
         #region D Row
 
-        private void D1_Click(object sender, EventArgs e)
+        public void D1_Click(object sender, EventArgs e)
         {
 
         }
-        private void D2_Click(object sender, EventArgs e)
+        public void D2_Click(object sender, EventArgs e)
         {
 
         }
-        private void D3_Click(object sender, EventArgs e)
+        public void D3_Click(object sender, EventArgs e)
         {
 
         }
-        private void D4_Click(object sender, EventArgs e)
+        public void D4_Click(object sender, EventArgs e)
         {
 
         }
-        private void D5_Click(object sender, EventArgs e)
+        public void D5_Click(object sender, EventArgs e)
         {
 
         }
-        private void D6_Click(object sender, EventArgs e)
+        public void D6_Click(object sender, EventArgs e)
         {
 
         }
-        private void D7_Click(object sender, EventArgs e)
+        public void D7_Click(object sender, EventArgs e)
         {
 
         }
-        private void D8_Click(object sender, EventArgs e)
+        public void D8_Click(object sender, EventArgs e)
         {
 
         }
-        private void D9_Click(object sender, EventArgs e)
+        public void D9_Click(object sender, EventArgs e)
         {
 
         }
-        private void D10_Click(object sender, EventArgs e)
+        public void D10_Click(object sender, EventArgs e)
         {
 
         }
@@ -468,43 +481,43 @@ namespace BattleShip_FinalProject
 
         #region E Row
 
-        private void E1_Click(object sender, EventArgs e)
+        public void E1_Click(object sender, EventArgs e)
         {
 
         }
-        private void E2_Click(object sender, EventArgs e)
+        public void E2_Click(object sender, EventArgs e)
         {
 
         }
-        private void E3_Click(object sender, EventArgs e)
+        public void E3_Click(object sender, EventArgs e)
         {
 
         }
-        private void E4_Click(object sender, EventArgs e)
+        public void E4_Click(object sender, EventArgs e)
         {
 
         }
-        private void E5_Click(object sender, EventArgs e)
+        public void E5_Click(object sender, EventArgs e)
         {
 
         }
-        private void E6_Click(object sender, EventArgs e)
+        public void E6_Click(object sender, EventArgs e)
         {
 
         }
-        private void E7_Click(object sender, EventArgs e)
+        public void E7_Click(object sender, EventArgs e)
         {
 
         }
-        private void E8_Click(object sender, EventArgs e)
+        public void E8_Click(object sender, EventArgs e)
         {
 
         }
-        private void E9_Click(object sender, EventArgs e)
+        public void E9_Click(object sender, EventArgs e)
         {
 
         }
-        private void E10_Click(object sender, EventArgs e)
+        public void E10_Click(object sender, EventArgs e)
         {
 
         }
@@ -514,43 +527,43 @@ namespace BattleShip_FinalProject
 
         #region F Row
 
-        private void F1_Click(object sender, EventArgs e)
+        public void F1_Click(object sender, EventArgs e)
         {
 
         }
-        private void F2_Click(object sender, EventArgs e)
+        public void F2_Click(object sender, EventArgs e)
         {
 
         }
-        private void F3_Click(object sender, EventArgs e)
+        public void F3_Click(object sender, EventArgs e)
         {
 
         }
-        private void F4_Click(object sender, EventArgs e)
+        public void F4_Click(object sender, EventArgs e)
         {
 
         }
-        private void F5_Click(object sender, EventArgs e)
+        public void F5_Click(object sender, EventArgs e)
         {
 
         }
-        private void F6_Click(object sender, EventArgs e)
+        public void F6_Click(object sender, EventArgs e)
         {
 
         }
-        private void F7_Click(object sender, EventArgs e)
+        public void F7_Click(object sender, EventArgs e)
         {
 
         }
-        private void F8_Click(object sender, EventArgs e)
+        public void F8_Click(object sender, EventArgs e)
         {
 
         }
-        private void F9_Click(object sender, EventArgs e)
+        public void F9_Click(object sender, EventArgs e)
         {
 
         }
-        private void F10_Click(object sender, EventArgs e)
+        public void F10_Click(object sender, EventArgs e)
         {
 
         }
@@ -560,43 +573,43 @@ namespace BattleShip_FinalProject
 
         #region G Row
 
-        private void G1_Click(object sender, EventArgs e)
+        public void G1_Click(object sender, EventArgs e)
         {
 
         }
-        private void G2_Click(object sender, EventArgs e)
+        public void G2_Click(object sender, EventArgs e)
         {
 
         }
-        private void G3_Click(object sender, EventArgs e)
+        public void G3_Click(object sender, EventArgs e)
         {
 
         }
-        private void G4_Click(object sender, EventArgs e)
+        public void G4_Click(object sender, EventArgs e)
         {
 
         }
-        private void G5_Click(object sender, EventArgs e)
+        public void G5_Click(object sender, EventArgs e)
         {
 
         }
-        private void G6_Click(object sender, EventArgs e)
+        public void G6_Click(object sender, EventArgs e)
         {
 
         }
-        private void G7_Click(object sender, EventArgs e)
+        public void G7_Click(object sender, EventArgs e)
         {
 
         }
-        private void G8_Click(object sender, EventArgs e)
+        public void G8_Click(object sender, EventArgs e)
         {
 
         }
-        private void G9_Click(object sender, EventArgs e)
+        public void G9_Click(object sender, EventArgs e)
         {
 
         }
-        private void G10_Click(object sender, EventArgs e)
+        public void G10_Click(object sender, EventArgs e)
         {
 
         }
@@ -606,43 +619,43 @@ namespace BattleShip_FinalProject
 
         #region H Row
 
-        private void H1_Click(object sender, EventArgs e)
+        public void H1_Click(object sender, EventArgs e)
         {
 
         }
-        private void H2_Click(object sender, EventArgs e)
+        public void H2_Click(object sender, EventArgs e)
         {
 
         }
-        private void H3_Click(object sender, EventArgs e)
+        public void H3_Click(object sender, EventArgs e)
         {
 
         }
-        private void H4_Click(object sender, EventArgs e)
+        public void H4_Click(object sender, EventArgs e)
         {
 
         }
-        private void H5_Click(object sender, EventArgs e)
+        public void H5_Click(object sender, EventArgs e)
         {
 
         }
-        private void H6_Click(object sender, EventArgs e)
+        public void H6_Click(object sender, EventArgs e)
         {
 
         }
-        private void H7_Click(object sender, EventArgs e)
+        public void H7_Click(object sender, EventArgs e)
         {
 
         }
-        private void H8_Click(object sender, EventArgs e)
+        public void H8_Click(object sender, EventArgs e)
         {
 
         }
-        private void H9_Click(object sender, EventArgs e)
+        public void H9_Click(object sender, EventArgs e)
         {
 
         }
-        private void H10_Click(object sender, EventArgs e)
+        public void H10_Click(object sender, EventArgs e)
         {
 
         }
@@ -652,43 +665,43 @@ namespace BattleShip_FinalProject
 
         #region I Row
 
-        private void I1_Click(object sender, EventArgs e)
+        public void I1_Click(object sender, EventArgs e)
         {
 
         }
-        private void I2_Click(object sender, EventArgs e)
+        public void I2_Click(object sender, EventArgs e)
         {
 
         }
-        private void I3_Click(object sender, EventArgs e)
+        public void I3_Click(object sender, EventArgs e)
         {
 
         }
-        private void I4_Click(object sender, EventArgs e)
+        public void I4_Click(object sender, EventArgs e)
         {
 
         }
-        private void I5_Click(object sender, EventArgs e)
+        public void I5_Click(object sender, EventArgs e)
         {
 
         }
-        private void I6_Click(object sender, EventArgs e)
+        public void I6_Click(object sender, EventArgs e)
         {
 
         }
-        private void I7_Click(object sender, EventArgs e)
+        public void I7_Click(object sender, EventArgs e)
         {
 
         }
-        private void I8_Click(object sender, EventArgs e)
+        public void I8_Click(object sender, EventArgs e)
         {
 
         }
-        private void I9_Click(object sender, EventArgs e)
+        public void I9_Click(object sender, EventArgs e)
         {
 
         }
-        private void I10_Click(object sender, EventArgs e)
+        public void I10_Click(object sender, EventArgs e)
         {
 
         }
@@ -698,43 +711,43 @@ namespace BattleShip_FinalProject
 
         #region J Row
 
-        private void J1_Click(object sender, EventArgs e)
+        public void J1_Click(object sender, EventArgs e)
         {
 
         }
-        private void J2_Click(object sender, EventArgs e)
+        public void J2_Click(object sender, EventArgs e)
         {
 
         }
-        private void J3_Click(object sender, EventArgs e)
+        public void J3_Click(object sender, EventArgs e)
         {
 
         }
-        private void J4_Click(object sender, EventArgs e)
+        public void J4_Click(object sender, EventArgs e)
         {
 
         }
-        private void J5_Click(object sender, EventArgs e)
+        public void J5_Click(object sender, EventArgs e)
         {
 
         }
-        private void J6_Click(object sender, EventArgs e)
+        public void J6_Click(object sender, EventArgs e)
         {
 
         }
-        private void J7_Click(object sender, EventArgs e)
+        public void J7_Click(object sender, EventArgs e)
         {
 
         }
-        private void J8_Click(object sender, EventArgs e)
+        public void J8_Click(object sender, EventArgs e)
         {
 
         }
-        private void J9_Click(object sender, EventArgs e)
+        public void J9_Click(object sender, EventArgs e)
         {
 
         }
-        private void J10_Click(object sender, EventArgs e)
+        public void J10_Click(object sender, EventArgs e)
         {
 
         }
@@ -742,5 +755,7 @@ namespace BattleShip_FinalProject
         #endregion
 
         #endregion
+
+
     }
 }

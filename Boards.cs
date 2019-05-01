@@ -31,13 +31,18 @@ namespace BattleShip_FinalProject
         }
     }
 
-    //greated but don't know if this will stay... needs modificaitons
+    ////greated but don't know if this will stay... needs modificaitons
     public class FiringBoard : GameBoard
     {
-        //create Lists with cordinates and panels
-        public List<Coordinates> GetOpenRandomPanels() { }
-        public List<Coordinates> GetHitNeighbors() { }
+        //    //create Lists with cordinates and panels
+        //    public List<Coordinates> GetOpenRandomPanels() { }
+        //    public List<Coordinates> GetHitNeighbors() { }
+        //    public List<Coordinates> GerNeighbors(Coordinates coordinates) { }
+        //}
 
-        public List<Coordinates> GerNeighbors(Coordinates coordinates) { }
+
+        //public Coordinates FireShot()
+        //{
+
     }
 }
