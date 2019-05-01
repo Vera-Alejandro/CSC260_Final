@@ -19,31 +19,15 @@ namespace BattleShip_FinalProject
         {
             //first thing I need to do is set the battleship images visible
             ViewAll();
-
-            //create the two firing boards
-            GameBoard PlayerBoard = new GameBoard();
-            GameBoard FiringBoard = new GameBoard();
-
-            //create player and oponent's ships
-            //*I might not have to create these instances -- just use the place funciton*
-            Carrier PCarrier = new Carrier();
-            Carrier OCarrier = new Carrier();
-            Battleship PBattleship = new Battleship();
-            Battleship OBattlehsip = new Battleship();
-            Cruiser PCruiser = new Cruiser();
-            Cruiser OCruiser = new Cruiser();
-            Submarine PSub = new Submarine();
-            Submarine OSub = new Submarine();
-            Destroyer PDestoyer = new Destroyer();
-            Destroyer ODestroyer = new Destroyer();
-
+            
             //prompt user to click ship
             Output.AppendText("Place the ships by click on the ship and then the respective box\n");
 
+            //start game
 
 
 
-            //Output to the user that they can click on the batteship images and they will be able to place them
+
 
 
         }
@@ -209,8 +193,6 @@ namespace BattleShip_FinalProject
         #region Ship Functions
         private void Destroyer_Click(object sender, EventArgs e)
         {
-            
-
             //Show what ship is selected
             Output.Clear();
             Output.AppendText("Destroyer Selected\n");
