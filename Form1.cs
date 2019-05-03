@@ -5,49 +5,84 @@ namespace BattleShip_FinalProject
 {
     public partial class Form1 : Form
     {
+        public Game PlayBattleShip { get; set; }
+        public Player user { get; set; }
+        public Player AI { get; set; }
+
         public Form1()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void Form1_Load(object sernder, EventArgs e)
         {
 
         }
 
-        public void Start_Click(object sender, EventArgs e)
+        public void Start_Click(object sernder, EventArgs e)
         {
 
             //prompt user to click ship
-            Output.AppendText("Place the ships by click on the ship and then the respective box\n");
-
-            //create players
-            Player user = new Player("User");
-            Player AI = new Player("Computer");
-
-            //strt game
-            Game PlayBattleship = new Game(user, AI);
-
-            //Place Ships in order by Carrier, Battleship, Cruiser, Submarine, Destoryer          
             
+            Output.AppendText("Place the ships by click on the ship and then the respective box" + Environment.NewLine);
+            user = new Player("User");
+            AI = new Player("Computer");
+            PlayBattleShip = new Game(user, AI);
+
+            //Place Ships in order by Carrier ,  Battleship ,  Cruiser ,  Submarine ,  Destoryer          
+
             //first thing I need to do is set the battleship images visible
-            Carrier.Visible = true;
-            Carrier.Location = new System.Drawing.Point(15, 15);
+            Img_Carrier.Visible = true;
+            Img_Carrier.Location = new System.Drawing.Point(15, 15);
             ShowGrid();
-            user.PlaceShips(user.Carrier);
+
+
+
 
             //after the placing function move the carrier back to the origional location
+        }
 
-            
-            
+        public void ButtonPressed(int row, int column)
+        {
+            //every button is assigned a value 
+            if (user.CarrierActive)
+            { 
+                if (user.PlaceCarrier(row, column, user))
+                {
+                    Output.Clear();
+                    Output.AppendText(user.Carrier.Name + " has been placed successfully");
+                }
+                else
+                {
+                    Output.Clear();
+                    Output.AppendText("Invalid Location. " + Environment.NewLine + user.Carrier.Name + " could not be placed.");
+                }
+            }
 
+            if (user.BattleshipActive)
+            {
+                user.PlaceBattleShip(1, 1);
+            }
 
+            if (user.CruiserActive)
+            {
+                user.PlaceCruiser(1, 1);
+            }
 
+            if (user.SubmarinePlaced)
+            {
+                user.PlaceSubmarine(1, 1);
+            }
+
+            if (user.DestroyerPlaced)
+            {
+                user.PlaceDestroyer(1, 1);
+            }
         }
 
         //function to set ships
         public void ShowGrid()
-        { 
+        {
             //show labels
             A_Label.Visible = true;
             B_Label.Visible = true;
@@ -174,21 +209,8 @@ namespace BattleShip_FinalProject
             J10.Visible = true;
         }
 
-        void A_Label_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        public void ButtonPressed()
-        {
-            //every button is assigned a value 
-
-        }
-
-
-
-        //this function is working, Yay!
-        private void Destroyer_MouseHover(object sender, EventArgs e)
+        //this function is working ,  Yay!
+        private void Destroyer_MouseHover(object sernder, EventArgs e)
         {
             Output.Clear();
             Output.AppendText("Hover is working. Coninute to use in buttons");
@@ -198,18 +220,18 @@ namespace BattleShip_FinalProject
 
         //placing ships
         #region Ship Functions
-        private void Destroyer_Click(object sender, EventArgs e)
+        private void Destroyer_Click(object sernder, EventArgs e)
         {
             //Show what ship is selected
             Output.Clear();
-            Output.AppendText("Destroyer Selected\n");
-            Output.AppendText("\nLeft edge is selected. Place the ship anywhere on the screen");
-            //if selected move to 30,30 else return to previous position
-            Destroyer.Location = new System.Drawing.Point(15, 15);
-            Cruiser.Location = new System.Drawing.Point(330, 100);
-            Submarine.Location = new System.Drawing.Point(315, 150);
-            Battleship.Location = new System.Drawing.Point(280, 250);
-            Cruiser.Location = new System.Drawing.Point(230, 330);
+            Output.AppendText("Destroyer Selected" + Environment.NewLine);
+            Output.AppendText(Environment.NewLine + "Left edge is selected. Place the ship anywhere on the screen");
+            //if selected move to 30 , 30 else return to previous position
+            Img_Destroyer.Location = new System.Drawing.Point(15, 15);
+            Img_Cruiser.Location = new System.Drawing.Point(330, 100);
+            Img_Submarine.Location = new System.Drawing.Point(315, 150);
+            Img_Battleship.Location = new System.Drawing.Point(280, 250);
+            Img_Cruiser.Location = new System.Drawing.Point(230, 330);
 
             //ship has been selected
 
@@ -232,59 +254,59 @@ namespace BattleShip_FinalProject
             //also how would I go about check it if it is a valid location
         }
 
-        private void Cruiser_Click(object sender, EventArgs e)
+        private void Cruiser_Click(object sernder, EventArgs e)
         {
             Output.Clear();
-            Output.AppendText("Destroyer Selected\n");
-            Output.AppendText("\nLeft edge is selected. Place the ship anywhere on the screen");
-            //if selected move to 30,30 else return to previous position
-            Destroyer.Location = new System.Drawing.Point(370, 35);
-            Cruiser.Location = new System.Drawing.Point(15, 15);
-            Submarine.Location = new System.Drawing.Point(315, 150);
-            Battleship.Location = new System.Drawing.Point(280, 250);
-            Cruiser.Location = new System.Drawing.Point(230, 330);
+            Output.AppendText("Destroyer Selected" + Environment.NewLine);
+            Output.AppendText(Environment.NewLine + "Left edge is selected. Place the ship anywhere on the screen");
+            //if selected move to 30 , 30 else return to previous position
+            Img_Destroyer.Location = new System.Drawing.Point(370, 35);
+            Img_Cruiser.Location = new System.Drawing.Point(15, 15);
+            Img_Submarine.Location = new System.Drawing.Point(315, 150);
+            Img_Battleship.Location = new System.Drawing.Point(280, 250);
+            Img_Cruiser.Location = new System.Drawing.Point(230, 330);
 
         }
 
-        private void Submarine_Click(object sender, EventArgs e)
+        private void Submarine_Click(object sernder, EventArgs e)
         {
             Output.Clear();
-            Output.AppendText("Destroyer Selected\n");
-            Output.AppendText("\nLeft edge is selected. Place the ship anywhere on the screen");
-            //if selected move to 30,30 else return to previous position
-            Destroyer.Location = new System.Drawing.Point(370, 35);
-            Cruiser.Location = new System.Drawing.Point(330, 100);
-            Submarine.Location = new System.Drawing.Point(15, 15);
-            Battleship.Location = new System.Drawing.Point(280, 250);
-            Cruiser.Location = new System.Drawing.Point(230, 330);
+            Output.AppendText("Destroyer Selected" + Environment.NewLine);
+            Output.AppendText(Environment.NewLine + "Left edge is selected. Place the ship anywhere on the screen");
+            //if selected move to 30 , 30 else return to previous position
+            Img_Destroyer.Location = new System.Drawing.Point(370, 35);
+            Img_Cruiser.Location = new System.Drawing.Point(330, 100);
+            Img_Submarine.Location = new System.Drawing.Point(15, 15);
+            Img_Battleship.Location = new System.Drawing.Point(280, 250);
+            Img_Cruiser.Location = new System.Drawing.Point(230, 330);
         }
 
-        private void Battleship_Click(object sender, EventArgs e)
+        private void Battleship_Click(object sernder, EventArgs e)
         {
             Output.Clear();
-            Output.AppendText("Destroyer Selected\n");
-            Output.AppendText("\nLeft edge is selected. Place the ship anywhere on the screen");
-            //if selected move to 30,30 else return to previous position
-            Destroyer.Location = new System.Drawing.Point(370, 35);
-            Cruiser.Location = new System.Drawing.Point(330, 100);
-            Submarine.Location = new System.Drawing.Point(315, 150);
-            Battleship.Location = new System.Drawing.Point(15, 15);
-            Cruiser.Location = new System.Drawing.Point(230, 330);
+            Output.AppendText("Destroyer Selected" + Environment.NewLine);
+            Output.AppendText(Environment.NewLine + "Left edge is selected. Place the ship anywhere on the screen");
+            //if selected move to 30 , 30 else return to previous position
+            Img_Destroyer.Location = new System.Drawing.Point(370, 35);
+            Img_Cruiser.Location = new System.Drawing.Point(330, 100);
+            Img_Submarine.Location = new System.Drawing.Point(315, 150);
+            Img_Battleship.Location = new System.Drawing.Point(15, 15);
+            Img_Cruiser.Location = new System.Drawing.Point(230, 330);
         }
 
-        private void Carrier_Click(object sender, EventArgs e)
+        private void Carrier_Click(object sernder, EventArgs e)
         {
             //clicking this should allow for the ships to be placed. But this should work the same for every ship
             //Call a funciton to place everything
             Output.Clear();
-            Output.AppendText("Destroyer Selected\n");
-            Output.AppendText("\nLeft edge is selected. Place the ship anywhere on the screen");
-            //if selected move to 30,30 else return to previous position
-            Destroyer.Location = new System.Drawing.Point(370, 35);
-            Cruiser.Location = new System.Drawing.Point(330, 100);
-            Submarine.Location = new System.Drawing.Point(315, 150);
-            Battleship.Location = new System.Drawing.Point(280, 250);
-            Carrier.Location = new System.Drawing.Point(15, 15);
+            Output.AppendText("Destroyer Selected" + Environment.NewLine);
+            Output.AppendText(Environment.NewLine + "Left edge is selected. Place the ship anywhere on the screen");
+            //if selected move to 30 , 30 else return to previous position
+            Img_Destroyer.Location = new System.Drawing.Point(370, 35);
+            Img_Cruiser.Location = new System.Drawing.Point(330, 100);
+            Img_Submarine.Location = new System.Drawing.Point(315, 150);
+            Img_Battleship.Location = new System.Drawing.Point(280, 250);
+            Img_Carrier.Location = new System.Drawing.Point(15, 15);
 
         }
 
@@ -296,465 +318,466 @@ namespace BattleShip_FinalProject
 
         #region A Row
 
-        public void A1_Click(object sender, EventArgs e)
-        {
+        public void A1_Click(object sernder, EventArgs e) { ButtonPressed(1, 1); }
 
-        }
-        public void A2_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void A3_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void A4_Click(object sender, EventArgs e)
-        {
+        public void A2_Click(object sernder, EventArgs e) { ButtonPressed(2, 1); }
 
-        }
-        public void A5_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void A6_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void A7_Click(object sender, EventArgs e)
-        {
+        public void A3_Click(object sernder, EventArgs e) { ButtonPressed(3, 1); }
 
-        }
-        public void A8_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void A9_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void A10_Click(object sender, EventArgs e)
-        {
+        public void A4_Click(object sernder, EventArgs e) { ButtonPressed(4, 1); }
 
-        }
+
+
+        public void A5_Click(object sernder, EventArgs e) { ButtonPressed(5, 1); }
+
+
+
+        public void A6_Click(object sernder, EventArgs e) { ButtonPressed(6, 1); }
+
+
+
+        public void A7_Click(object sernder, EventArgs e) { ButtonPressed(7, 1); }
+
+
+
+        public void A8_Click(object sernder, EventArgs e) { ButtonPressed(8, 1); }
+
+
+
+        public void A9_Click(object sernder, EventArgs e) { ButtonPressed(9, 1); }
+
+
+
+        public void A10_Click(object sernder, EventArgs e) { ButtonPressed(10, 1); }
+
+
+
 
         #endregion
 
 
         #region B Row
 
-        public void B1_Click(object sender, EventArgs e)
-        {
+        public void B1_Click(object sernder, EventArgs e) { ButtonPressed(1, 2); }
 
-        }
-        public void B2_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void B3_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void B4_Click(object sender, EventArgs e)
-        {
+        public void B2_Click(object sernder, EventArgs e) { ButtonPressed(2, 2); }
 
-        }
-        public void B5_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void B6_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void B7_Click(object sender, EventArgs e)
-        {
+        public void B3_Click(object sernder, EventArgs e) { ButtonPressed(3, 2); }
 
-        }
-        public void B8_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void B9_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void B10_Click(object sender, EventArgs e)
-        {
+        public void B4_Click(object sernder, EventArgs e) { ButtonPressed(4, 2); }
 
-        }
+
+
+        public void B5_Click(object sernder, EventArgs e) { ButtonPressed(5, 2); }
+
+
+
+        public void B6_Click(object sernder, EventArgs e) { ButtonPressed(6, 2); }
+
+
+
+        public void B7_Click(object sernder, EventArgs e) { ButtonPressed(7, 2); }
+
+
+
+        public void B8_Click(object sernder, EventArgs e) { ButtonPressed(8, 2); }
+
+
+
+        public void B9_Click(object sernder, EventArgs e) { ButtonPressed(9, 2); }
+
+
+
+        public void B10_Click(object sernder, EventArgs e) { ButtonPressed(10, 2); }
+
+
+
 
         #endregion
 
 
         #region C Row
 
-        public void C1_Click(object sender, EventArgs e)
-        {
+        public void C1_Click(object sernder, EventArgs e) { ButtonPressed(1, 3); }
 
-        }
-        public void C2_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void C3_Click(object sender, EventArgs e)
-        {
 
-        }
+        public void C2_Click(object sernder, EventArgs e) { ButtonPressed(2, 3); }
 
-        public void C4_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void C5_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void C6_Click(object sender, EventArgs e)
-        {
+        public void C3_Click(object sernder, EventArgs e) { ButtonPressed(3, 3); }
 
-        }
-        public void C7_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void C8_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void C9_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void C10_Click(object sender, EventArgs e)
-        {
+        public void C4_Click(object sernder, EventArgs e) { ButtonPressed(4, 3); }
 
-        }
+
+
+        public void C5_Click(object sernder, EventArgs e) { ButtonPressed(5, 3); }
+
+
+
+        public void C6_Click(object sernder, EventArgs e) { ButtonPressed(6, 3); }
+
+
+
+        public void C7_Click(object sernder, EventArgs e) { ButtonPressed(7, 3); }
+
+
+
+        public void C8_Click(object sernder, EventArgs e) { ButtonPressed(8, 3); }
+
+
+
+        public void C9_Click(object sernder, EventArgs e) { ButtonPressed(9, 3); }
+
+
+
+        public void C10_Click(object sernder, EventArgs e) { ButtonPressed(10, 3); }
+
+
+
 
         #endregion
 
 
         #region D Row
 
-        public void D1_Click(object sender, EventArgs e)
-        {
+        public void D1_Click(object sernder, EventArgs e) { ButtonPressed(1, 4); }
 
-        }
-        public void D2_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void D3_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void D4_Click(object sender, EventArgs e)
-        {
+        public void D2_Click(object sernder, EventArgs e) { ButtonPressed(2, 4); }
 
-        }
-        public void D5_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void D6_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void D7_Click(object sender, EventArgs e)
-        {
+        public void D3_Click(object sernder, EventArgs e) { ButtonPressed(3, 4); }
 
-        }
-        public void D8_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void D9_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void D10_Click(object sender, EventArgs e)
-        {
+        public void D4_Click(object sernder, EventArgs e) { ButtonPressed(4, 4); }
 
-        }
+
+
+        public void D5_Click(object sernder, EventArgs e) { ButtonPressed(5, 4); }
+
+
+
+        public void D6_Click(object sernder, EventArgs e) { ButtonPressed(6, 4); }
+
+
+
+        public void D7_Click(object sernder, EventArgs e) { ButtonPressed(7, 4); }
+
+
+
+        public void D8_Click(object sernder, EventArgs e) { ButtonPressed(8, 4); }
+
+
+
+        public void D9_Click(object sernder, EventArgs e) { ButtonPressed(9, 4); }
+
+
+
+        public void D10_Click(object sernder, EventArgs e) { ButtonPressed(10, 4); }
+
+
+
 
         #endregion
 
 
         #region E Row
 
-        public void E1_Click(object sender, EventArgs e)
-        {
+        public void E1_Click(object sernder, EventArgs e) { ButtonPressed(1, 5); }
 
-        }
-        public void E2_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void E3_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void E4_Click(object sender, EventArgs e)
-        {
+        public void E2_Click(object sernder, EventArgs e) { ButtonPressed(2, 5); }
 
-        }
-        public void E5_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void E6_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void E7_Click(object sender, EventArgs e)
-        {
+        public void E3_Click(object sernder, EventArgs e) { ButtonPressed(3, 5); }
 
-        }
-        public void E8_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void E9_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void E10_Click(object sender, EventArgs e)
-        {
+        public void E4_Click(object sernder, EventArgs e) { ButtonPressed(4, 5); }
 
-        }
+
+
+        public void E5_Click(object sernder, EventArgs e) { ButtonPressed(5, 5); }
+
+
+
+        public void E6_Click(object sernder, EventArgs e) { ButtonPressed(6, 5); }
+
+
+
+        public void E7_Click(object sernder, EventArgs e) { ButtonPressed(7, 5); }
+
+
+
+        public void E8_Click(object sernder, EventArgs e) { ButtonPressed(8, 5); }
+
+
+
+        public void E9_Click(object sernder, EventArgs e) { ButtonPressed(9, 5); }
+
+
+
+        public void E10_Click(object sernder, EventArgs e) { ButtonPressed(10, 5); }
+
+
+
 
         #endregion
 
 
         #region F Row
 
-        public void F1_Click(object sender, EventArgs e)
-        {
+        public void F1_Click(object sernder, EventArgs e) { ButtonPressed(1, 6); }
 
-        }
-        public void F2_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void F3_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void F4_Click(object sender, EventArgs e)
-        {
+        public void F2_Click(object sernder, EventArgs e) { ButtonPressed(2, 6); }
 
-        }
-        public void F5_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void F6_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void F7_Click(object sender, EventArgs e)
-        {
+        public void F3_Click(object sernder, EventArgs e) { ButtonPressed(3, 6); }
 
-        }
-        public void F8_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void F9_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void F10_Click(object sender, EventArgs e)
-        {
+        public void F4_Click(object sernder, EventArgs e) { ButtonPressed(4, 6); }
 
-        }
+
+
+        public void F5_Click(object sernder, EventArgs e) { ButtonPressed(5, 6); }
+
+
+
+        public void F6_Click(object sernder, EventArgs e) { ButtonPressed(6, 6); }
+
+
+
+        public void F7_Click(object sernder, EventArgs e) { ButtonPressed(7, 6); }
+
+
+
+        public void F8_Click(object sernder, EventArgs e) { ButtonPressed(8, 6); }
+
+
+
+        public void F9_Click(object sernder, EventArgs e) { ButtonPressed(9, 6); }
+
+
+
+        public void F10_Click(object sernder, EventArgs e) { ButtonPressed(10, 6); }
+
+
+
 
         #endregion
 
 
         #region G Row
 
-        public void G1_Click(object sender, EventArgs e)
-        {
+        public void G1_Click(object sernder, EventArgs e) { ButtonPressed(1, 7); }
 
-        }
-        public void G2_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void G3_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void G4_Click(object sender, EventArgs e)
-        {
+        public void G2_Click(object sernder, EventArgs e) { ButtonPressed(2, 7); }
 
-        }
-        public void G5_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void G6_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void G7_Click(object sender, EventArgs e)
-        {
+        public void G3_Click(object sernder, EventArgs e) { ButtonPressed(3, 7); }
 
-        }
-        public void G8_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void G9_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void G10_Click(object sender, EventArgs e)
-        {
+        public void G4_Click(object sernder, EventArgs e) { ButtonPressed(4, 7); }
 
-        }
+
+
+        public void G5_Click(object sernder, EventArgs e) { ButtonPressed(5, 7); }
+
+
+
+        public void G6_Click(object sernder, EventArgs e) { ButtonPressed(6, 7); }
+
+
+
+        public void G7_Click(object sernder, EventArgs e) { ButtonPressed(7, 7); }
+
+
+
+        public void G8_Click(object sernder, EventArgs e) { ButtonPressed(8, 7); }
+
+
+
+        public void G9_Click(object sernder, EventArgs e) { ButtonPressed(9, 7); }
+
+
+
+        public void G10_Click(object sernder, EventArgs e) { ButtonPressed(10, 7); }
+
+
+
 
         #endregion
 
 
         #region H Row
 
-        public void H1_Click(object sender, EventArgs e)
-        {
+        public void H1_Click(object sernder, EventArgs e) { ButtonPressed(1, 8); }
 
-        }
-        public void H2_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void H3_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void H4_Click(object sender, EventArgs e)
-        {
+        public void H2_Click(object sernder, EventArgs e) { ButtonPressed(2, 8); }
 
-        }
-        public void H5_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void H6_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void H7_Click(object sender, EventArgs e)
-        {
+        public void H3_Click(object sernder, EventArgs e) { ButtonPressed(3, 8); }
 
-        }
-        public void H8_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void H9_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void H10_Click(object sender, EventArgs e)
-        {
+        public void H4_Click(object sernder, EventArgs e) { ButtonPressed(4, 8); }
 
-        }
+
+
+        public void H5_Click(object sernder, EventArgs e) { ButtonPressed(5, 8); }
+
+
+
+        public void H6_Click(object sernder, EventArgs e) { ButtonPressed(6, 8); }
+
+
+
+        public void H7_Click(object sernder, EventArgs e) { ButtonPressed(7, 8); }
+
+
+
+        public void H8_Click(object sernder, EventArgs e) { ButtonPressed(8, 8); }
+
+
+
+        public void H9_Click(object sernder, EventArgs e) { ButtonPressed(9, 8); }
+
+
+
+        public void H10_Click(object sernder, EventArgs e) { ButtonPressed(10, 8); }
+
+
+
 
         #endregion
 
 
         #region I Row
 
-        public void I1_Click(object sender, EventArgs e)
-        {
+        public void I1_Click(object sernder, EventArgs e) { ButtonPressed(1, 9); }
 
-        }
-        public void I2_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void I3_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void I4_Click(object sender, EventArgs e)
-        {
+        public void I2_Click(object sernder, EventArgs e) { ButtonPressed(2, 9); }
 
-        }
-        public void I5_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void I6_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void I7_Click(object sender, EventArgs e)
-        {
+        public void I3_Click(object sernder, EventArgs e) { ButtonPressed(3, 9); }
 
-        }
-        public void I8_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void I9_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void I10_Click(object sender, EventArgs e)
-        {
+        public void I4_Click(object sernder, EventArgs e) { ButtonPressed(4, 9); }
 
-        }
+
+
+        public void I5_Click(object sernder, EventArgs e) { ButtonPressed(5, 9); }
+
+
+
+        public void I6_Click(object sernder, EventArgs e) { ButtonPressed(6, 9); }
+
+
+
+        public void I7_Click(object sernder, EventArgs e) { ButtonPressed(7, 9); }
+
+
+
+        public void I8_Click(object sernder, EventArgs e) { ButtonPressed(8, 9); }
+
+
+
+        public void I9_Click(object sernder, EventArgs e) { ButtonPressed(9, 9); }
+
+
+
+        public void I10_Click(object sernder, EventArgs e) { ButtonPressed(10, 9); }
+
+
+
 
         #endregion
 
 
         #region J Row
 
-        public void J1_Click(object sender, EventArgs e)
-        {
+        public void J1_Click(object sernder, EventArgs e) { ButtonPressed(1, 10); }
 
-        }
-        public void J2_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void J3_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void J4_Click(object sender, EventArgs e)
-        {
+        public void J2_Click(object sernder, EventArgs e) { ButtonPressed(2, 10); }
 
-        }
-        public void J5_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void J6_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void J7_Click(object sender, EventArgs e)
-        {
+        public void J3_Click(object sernder, EventArgs e) { ButtonPressed(3, 10); }
 
-        }
-        public void J8_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void J9_Click(object sender, EventArgs e)
-        {
 
-        }
-        public void J10_Click(object sender, EventArgs e)
-        {
+        public void J4_Click(object sernder, EventArgs e) { ButtonPressed(4, 10); }
 
-        }
+
+
+        public void J5_Click(object sernder, EventArgs e) { ButtonPressed(5, 10); }
+
+
+
+        public void J6_Click(object sernder, EventArgs e) { ButtonPressed(6, 10); }
+
+
+
+        public void J7_Click(object sernder, EventArgs e) { ButtonPressed(7, 10); }
+
+
+
+        public void J8_Click(object sernder, EventArgs e) { ButtonPressed(8, 10); }
+
+
+
+        public void J9_Click(object sernder, EventArgs e) { ButtonPressed(9, 10); }
+
+
+
+        public void J10_Click(object sernder, EventArgs e) { ButtonPressed(10, 10); }
+
+
+
+
+        #endregion
 
         #endregion
 
-        #endregion
 
 
     }

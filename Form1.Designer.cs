@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.Start = new System.Windows.Forms.Button();
-            this.Battleship = new System.Windows.Forms.PictureBox();
-            this.Cruiser = new System.Windows.Forms.PictureBox();
-            this.Submarine = new System.Windows.Forms.PictureBox();
-            this.Destroyer = new System.Windows.Forms.PictureBox();
+            this.Img_Battleship = new System.Windows.Forms.PictureBox();
+            this.Img_Cruiser = new System.Windows.Forms.PictureBox();
+            this.Img_Submarine = new System.Windows.Forms.PictureBox();
+            this.Img_Destroyer = new System.Windows.Forms.PictureBox();
             this.Title = new System.Windows.Forms.Label();
             this.A1 = new System.Windows.Forms.Button();
             this.D7 = new System.Windows.Forms.Button();
@@ -155,13 +155,13 @@
             this.C_Label = new System.Windows.Forms.Label();
             this.B_Label = new System.Windows.Forms.Label();
             this.Output = new System.Windows.Forms.TextBox();
-            this.Carrier = new System.Windows.Forms.PictureBox();
+            this.Img_Carrier = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.Battleship)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Cruiser)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Submarine)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Destroyer)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Carrier)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Img_Battleship)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Img_Cruiser)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Img_Submarine)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Img_Destroyer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Img_Carrier)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -175,54 +175,54 @@
             this.Start.UseVisualStyleBackColor = true;
             this.Start.Click += new System.EventHandler(this.Start_Click);
             // 
-            // Battleship
+            // Img_Battleship
             // 
-            this.Battleship.Image = global::BattleShip_FinalProject.Properties.Resources.Battleship;
-            this.Battleship.Location = new System.Drawing.Point(280, 250);
-            this.Battleship.Name = "Battleship";
-            this.Battleship.Size = new System.Drawing.Size(199, 72);
-            this.Battleship.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.Battleship.TabIndex = 1;
-            this.Battleship.TabStop = false;
-            this.Battleship.Visible = false;
-            this.Battleship.Click += new System.EventHandler(this.Battleship_Click);
+            this.Img_Battleship.Image = global::BattleShip_FinalProject.Properties.Resources.Battleship;
+            this.Img_Battleship.Location = new System.Drawing.Point(280, 250);
+            this.Img_Battleship.Name = "Img_Battleship";
+            this.Img_Battleship.Size = new System.Drawing.Size(199, 72);
+            this.Img_Battleship.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.Img_Battleship.TabIndex = 1;
+            this.Img_Battleship.TabStop = false;
+            this.Img_Battleship.Visible = false;
+            this.Img_Battleship.Click += new System.EventHandler(this.Battleship_Click);
             // 
-            // Cruiser
+            // Img_Cruiser
             // 
-            this.Cruiser.Image = global::BattleShip_FinalProject.Properties.Resources.Cruiser;
-            this.Cruiser.Location = new System.Drawing.Point(330, 100);
-            this.Cruiser.Name = "Cruiser";
-            this.Cruiser.Size = new System.Drawing.Size(148, 50);
-            this.Cruiser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.Cruiser.TabIndex = 3;
-            this.Cruiser.TabStop = false;
-            this.Cruiser.Visible = false;
-            this.Cruiser.Click += new System.EventHandler(this.Cruiser_Click);
+            this.Img_Cruiser.Image = global::BattleShip_FinalProject.Properties.Resources.Cruiser;
+            this.Img_Cruiser.Location = new System.Drawing.Point(330, 100);
+            this.Img_Cruiser.Name = "Img_Cruiser";
+            this.Img_Cruiser.Size = new System.Drawing.Size(148, 50);
+            this.Img_Cruiser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.Img_Cruiser.TabIndex = 3;
+            this.Img_Cruiser.TabStop = false;
+            this.Img_Cruiser.Visible = false;
+            this.Img_Cruiser.Click += new System.EventHandler(this.Cruiser_Click);
             // 
-            // Submarine
+            // Img_Submarine
             // 
-            this.Submarine.Image = global::BattleShip_FinalProject.Properties.Resources.Submarine;
-            this.Submarine.Location = new System.Drawing.Point(315, 150);
-            this.Submarine.Name = "Submarine";
-            this.Submarine.Size = new System.Drawing.Size(164, 90);
-            this.Submarine.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.Submarine.TabIndex = 4;
-            this.Submarine.TabStop = false;
-            this.Submarine.Visible = false;
-            this.Submarine.Click += new System.EventHandler(this.Submarine_Click);
+            this.Img_Submarine.Image = global::BattleShip_FinalProject.Properties.Resources.Submarine;
+            this.Img_Submarine.Location = new System.Drawing.Point(315, 150);
+            this.Img_Submarine.Name = "Img_Submarine";
+            this.Img_Submarine.Size = new System.Drawing.Size(164, 90);
+            this.Img_Submarine.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.Img_Submarine.TabIndex = 4;
+            this.Img_Submarine.TabStop = false;
+            this.Img_Submarine.Visible = false;
+            this.Img_Submarine.Click += new System.EventHandler(this.Submarine_Click);
             // 
-            // Destroyer
+            // Img_Destroyer
             // 
-            this.Destroyer.Image = global::BattleShip_FinalProject.Properties.Resources.Destroyer;
-            this.Destroyer.Location = new System.Drawing.Point(370, 35);
-            this.Destroyer.Name = "Destroyer";
-            this.Destroyer.Size = new System.Drawing.Size(115, 54);
-            this.Destroyer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.Destroyer.TabIndex = 5;
-            this.Destroyer.TabStop = false;
-            this.Destroyer.Visible = false;
-            this.Destroyer.Click += new System.EventHandler(this.Destroyer_Click);
-            this.Destroyer.MouseHover += new System.EventHandler(this.Destroyer_MouseHover);
+            this.Img_Destroyer.Image = global::BattleShip_FinalProject.Properties.Resources.Destroyer;
+            this.Img_Destroyer.Location = new System.Drawing.Point(370, 35);
+            this.Img_Destroyer.Name = "Img_Destroyer";
+            this.Img_Destroyer.Size = new System.Drawing.Size(115, 54);
+            this.Img_Destroyer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.Img_Destroyer.TabIndex = 5;
+            this.Img_Destroyer.TabStop = false;
+            this.Img_Destroyer.Visible = false;
+            this.Img_Destroyer.Click += new System.EventHandler(this.Destroyer_Click);
+            this.Img_Destroyer.MouseHover += new System.EventHandler(this.Destroyer_MouseHover);
             // 
             // Title
             // 
@@ -1244,7 +1244,6 @@
             this.A_Label.TabIndex = 107;
             this.A_Label.Text = "A";
             this.A_Label.Visible = false;
-            this.A_Label.Click += new System.EventHandler(this.A_Label_Click);
             // 
             // Label_5
             // 
@@ -1463,25 +1462,25 @@
             this.Output.Size = new System.Drawing.Size(215, 175);
             this.Output.TabIndex = 127;
             // 
-            // Carrier
+            // Img_Carrier
             // 
-            this.Carrier.Image = global::BattleShip_FinalProject.Properties.Resources.Carrier;
-            this.Carrier.Location = new System.Drawing.Point(230, 330);
-            this.Carrier.Name = "Carrier";
-            this.Carrier.Size = new System.Drawing.Size(246, 76);
-            this.Carrier.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.Carrier.TabIndex = 2;
-            this.Carrier.TabStop = false;
-            this.Carrier.Visible = false;
-            this.Carrier.Click += new System.EventHandler(this.Carrier_Click);
+            this.Img_Carrier.Image = global::BattleShip_FinalProject.Properties.Resources.Carrier;
+            this.Img_Carrier.Location = new System.Drawing.Point(230, 330);
+            this.Img_Carrier.Name = "Img_Carrier";
+            this.Img_Carrier.Size = new System.Drawing.Size(246, 76);
+            this.Img_Carrier.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.Img_Carrier.TabIndex = 2;
+            this.Img_Carrier.TabStop = false;
+            this.Img_Carrier.Visible = false;
+            this.Img_Carrier.Click += new System.EventHandler(this.Carrier_Click);
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.Carrier);
-            this.panel1.Controls.Add(this.Destroyer);
-            this.panel1.Controls.Add(this.Battleship);
-            this.panel1.Controls.Add(this.Cruiser);
-            this.panel1.Controls.Add(this.Submarine);
+            this.panel1.Controls.Add(this.Img_Carrier);
+            this.panel1.Controls.Add(this.Img_Destroyer);
+            this.panel1.Controls.Add(this.Img_Battleship);
+            this.panel1.Controls.Add(this.Img_Cruiser);
+            this.panel1.Controls.Add(this.Img_Submarine);
             this.panel1.Location = new System.Drawing.Point(811, 354);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(605, 459);
@@ -1619,11 +1618,11 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.Battleship)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Cruiser)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Submarine)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Destroyer)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Carrier)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Img_Battleship)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Img_Cruiser)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Img_Submarine)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Img_Destroyer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Img_Carrier)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -1633,10 +1632,10 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox Battleship;
-        private System.Windows.Forms.PictureBox Cruiser;
-        private System.Windows.Forms.PictureBox Submarine;
-        private System.Windows.Forms.PictureBox Destroyer;
+        private System.Windows.Forms.PictureBox Img_Battleship;
+        private System.Windows.Forms.PictureBox Img_Cruiser;
+        private System.Windows.Forms.PictureBox Img_Submarine;
+        private System.Windows.Forms.PictureBox Img_Destroyer;
 
         private System.Windows.Forms.Label Title;
 
@@ -1765,7 +1764,7 @@
         private System.Windows.Forms.Label I_Label;
         private System.Windows.Forms.Label J_Label;
         private System.Windows.Forms.TextBox Output;
-        private System.Windows.Forms.PictureBox Carrier;
+        private System.Windows.Forms.PictureBox Img_Carrier;
         private System.Windows.Forms.Panel panel1;
     }
 }

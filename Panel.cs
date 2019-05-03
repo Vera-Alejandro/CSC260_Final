@@ -33,6 +33,8 @@ namespace BattleShip_FinalProject
             }
         }
 
+ 
+
         //I don't know if I will use this but I'll code it up anyway
         /*
          public bool IsRandomAvaliable

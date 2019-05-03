@@ -10,13 +10,18 @@ namespace BattleShip_FinalProject
     {
         public Player User { get; set; }
         public Player Opponent { get; set; }
-        public bool StartGame { get; set; }
-        public Game(Player player, Player AI)
+
+        public Game(Player player1, Player player2)
         {
-            StartGame = true;
-            User = player;
-            Opponent = AI;
+            User = player1;
+            Opponent = player2;
         }
+
+        public void StartGame()
+        {
+            
+        }
+
 
         public void PlayTurn()
         {

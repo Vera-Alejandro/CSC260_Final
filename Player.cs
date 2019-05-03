@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace BattleShip_FinalProject
 {
-    public class Player
+    public class Player 
     {
-        public string Name { get; set; }
+        public string PName { get; set; }
         public GameBoard GameBoard { get; set; }
         public FiringBoard FiringBoard { get; set; }
         public Carrier Carrier { get; set; }
@@ -22,6 +22,11 @@ namespace BattleShip_FinalProject
         public bool CruiserPlaced { get; set; }
         public bool SubmarinePlaced { get; set; }
         public bool DestroyerPlaced { get; set; }
+        public bool CarrierActive { get; set; }
+        public bool BattleshipActive { get; set; }
+        public bool CruiserActive { get; set; }
+        public bool SubmarineActive { get; set; }
+        public bool DestroyerActive { get; set; }
 
 
         //checks all the list to see if they are all sunk.
@@ -42,19 +47,28 @@ namespace BattleShip_FinalProject
         public Player(string name)
         {
             //import the Player Name
-            Name = name;
+            PName = name;
 
             //create a collection of ships
             Carrier = new Carrier();
             CarrierPlaced = false;
+            CarrierActive = true;
+
             Battleship = new Battleship();
             BattleshipPlaced = false;
+            BattleshipActive = false;
+
             Cruiser = new Cruiser();
             CruiserPlaced = false;
+            CruiserActive = false;
+
             Submarine = new Submarine();
             SubmarinePlaced = false;
+            SubmarineActive = false;
+
             Destroyer = new Destroyer();
             DestroyerPlaced = false;
+            DestroyerActive = false;
 
             //Create Gameboard and FiringBoard for Player Use
             GameBoard = new GameBoard();
@@ -62,42 +76,133 @@ namespace BattleShip_FinalProject
         }
 
 
+
+
+
         #region Placing Ships Functions
         //this places the Carrier class
-        public void PlaceShips(Carrier carrier)
+        public bool PlaceCarrier(int row, int column, Player player0)
         {
+            int location = ((row - 1) * 10) + ((column % 10) -1);
 
-            CarrierPlaced = true;
-            ShipsPlaced++;
+            //check if the button press is a value placment option
+            if (!(player0.GameBoard.Panels[location].IsOccupied))
+            {
+                
+                //check if there is space on the board to fit the ship
+                for (int panelcheck = 1; panelcheck < Carrier.Width; panelcheck++)
+                {
+                    //checks if panel is free or if location moved to a new row
+                    if (player0.GameBoard.Panels[location + panelcheck].IsOccupied || (player0.GameBoard.Panels[location + panelcheck].Coordinates.Row != player0.GameBoard.Panels[location + panelcheck - 1].Coordinates.Row))
+                    {
+                        //there is not enough spaces to allow ship placement 
+                        return false;
+                    }
+                }
+
+                //place ship on empty panels
+                for (int placing = 0; placing < Carrier.Width; placing++)
+                {
+                    player0.GameBoard.Panels[location + placing].ShipType = ShipType.Carrier;
+                }
+
+
+                //place code
+                CarrierPlaced = true;
+                ShipsPlaced++;
+                CarrierActive = false;
+                BattleshipActive = true;
+
+                //fucntion carried out successfully
+                return true;
+            }
+
+            //button is not a valid placment point
+            return false;
         }
 
         //this places the Balleship class
-        public void PlaceShips(Battleship battleship)
+        public int PlaceBattleShip(int row, int column )
         {
+            if (1 != row /*button location*/)
+            {
+                //place code
+                BattleshipPlaced = true;
+                ShipsPlaced++;
 
-            BattleshipPlaced = true;
-            ShipsPlaced++;
+                //fucntion carried out successfully
+                return 1;
+            }
+            else
+            {
+                //button is not a valid placment poiunt
+                return -1;
+            }
+
+            
         }
 
         //this places the Cruiser class
-        public void PlaceShips(Cruiser cruiser)
+        public int PlaceCruiser(int row, int column )
         {
-            CruiserPlaced = true;
-            ShipsPlaced++;
+            if (1 != row /*button location*/)
+            {
+                //place code
+                CruiserPlaced = true;
+                ShipsPlaced++; ;
+
+                //fucntion carried out successfully
+                return 1;
+            }
+            else
+            {
+                //button is not a valid placment poiunt
+                return -1;
+            }
+
+            
         }
 
         //this places the Submarine class
-        public void PlaceShips(Submarine submarine)
+        public int PlaceSubmarine(int row, int column )
         {
-            SubmarinePlaced = true;
-            ShipsPlaced++;
+
+            if (1 != row /*button location*/)
+            {
+                //place code
+                SubmarinePlaced = true;
+                ShipsPlaced++;
+
+                //fucntion carried out successfully
+                return 1;
+            }
+            else
+            {
+                //button is not a valid placment poiunt
+                return -1;
+            }
+            
         }
 
         //this places the Destroyer class
-        public void PlaceShips(Destroyer destroyer)
+        public int PlaceDestroyer(int row, int column )
         {
-            DestroyerPlaced = true;
-            ShipsPlaced++;
+
+            if (1 != row /*button location*/)
+            {
+                //place code
+                DestroyerPlaced = true;
+                ShipsPlaced++;
+
+                //fucntion carried out successfully
+                return 1;
+            }
+            else
+            {
+                //button is not a valid placment poiunt
+                return -1;
+            }
+            
         }
         #endregion
     }
