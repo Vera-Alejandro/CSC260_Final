@@ -31,7 +31,7 @@ namespace BattleShip_FinalProject
         }
     }
 
-    ////greated but don't know if this will stay... needs modificaitons
+    // don't know if this will stay... needs modificaitons
     public class FiringBoard : GameBoard
     {
         //    //create Lists with cordinates and panels
@@ -40,9 +40,17 @@ namespace BattleShip_FinalProject
         //    public List<Coordinates> GerNeighbors(Coordinates coordinates) { }
         //}
 
+        public FiringBoard()
+        {
+            GameBoard FiringBoard = new GameBoard();
+        }
 
-        //public Coordinates FireShot()
-        //{
+
+        public Coordinates FireShot()
+        {
+            Coordinates shot = new Coordinates(1, 1);
+            return shot;
+        }
 
     }
 }

@@ -17,20 +17,5 @@ namespace BattleShip_FinalProject
             Opponent = player2;
         }
 
-        public void StartGame()
-        {
-            
-        }
-
-
-        public void PlayTurn()
-        {
-
-        }
-        
-        public void PlayToEnd()
-        {
-
-        }
     }
 }
