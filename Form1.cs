@@ -23,7 +23,7 @@ namespace BattleShip_FinalProject
         {
 
             //prompt user to click ship
-            
+            Output.Clear();
             Output.AppendText("Place the ships by click on the ship and then the respective box" + Environment.NewLine);
             user = new Player("User");
             AI = new Player("Computer");
@@ -31,9 +31,8 @@ namespace BattleShip_FinalProject
 
             //Place Ships in order by Carrier ,  Battleship ,  Cruiser ,  Submarine ,  Destoryer          
 
-            //first thing I need to do is set the battleship images visible
+            //first thing I need to do is set the Aircraft carrier image visible
             Img_Carrier.Visible = true;
-            Img_Carrier.Location = new System.Drawing.Point(15, 15);
             ShowGrid();
 
 
@@ -42,42 +41,100 @@ namespace BattleShip_FinalProject
             //after the placing function move the carrier back to the origional location
         }
 
-        public void ButtonPressed(int row, int column)
+        public int ButtonPressed(int row, int column)
         {
-            //every button is assigned a value 
-            if (user.CarrierActive)
-            { 
-                if (user.PlaceCarrier(row, column, user))
+
+            if (!(user.ShipsPlaced))
+            {
+                //every button is assigned a value 
+                if (user.CarrierActive)
                 {
-                    Output.Clear();
-                    Output.AppendText(user.Carrier.Name + " has been placed successfully");
+                    if (user.PlaceShip(row, column, user, ShipType.Carrier))
+                    {
+                        Output.Clear();
+                        Output.AppendText(user.Carrier.Name + " has been placed successfully");
+                        Img_Battleship.Visible = true;
+                        return 15;
+                    }
+                    else
+                    {
+                        Output.Clear();
+                        Output.AppendText("Invalid Location. " + Environment.NewLine + user.Carrier.Name + " could not be placed.");
+                        return -1;
+                    }
                 }
-                else
+
+                if (user.BattleshipActive)
                 {
-                    Output.Clear();
-                    Output.AppendText("Invalid Location. " + Environment.NewLine + user.Carrier.Name + " could not be placed.");
+                    if (user.PlaceShip(row, column, user, ShipType.Battleship))
+                    {
+                        Output.Clear();
+                        Output.AppendText(user.Battleship.Name + " has been placed successfully");
+                        Img_Submarine.Visible = true;
+                        return 14;
+                    }
+                    else
+                    {
+                        Output.Clear();
+                        Output.AppendText("Invalid Location. " + Environment.NewLine + user.Battleship.Name + " could not be placed.");
+                        return -1; 
+                    }
+                }
+
+                if (user.SubmarineActive)
+                {
+                    if (user.PlaceShip(row, column, user, ShipType.Submarine))
+                    {
+                        Output.Clear();
+                        Output.AppendText(user.Submarine.Name + " has been placed successfully");
+                        Img_Cruiser.Visible = true;
+                        return 131;
+                    }
+                    else
+                    {
+                        Output.Clear();
+                        Output.AppendText("Invalid Location. " + Environment.NewLine + user.Submarine.Name + " could not be placed.");
+                        return -1;
+                    }
+                }
+
+                if (user.CruiserActive)
+                {
+                    if (user.PlaceShip(row, column, user, ShipType.Cruiser))
+                    {
+                        Output.Clear();
+                        Output.AppendText(user.Cruiser.Name + " has been placed successfully");
+                        Img_Destroyer.Visible = true;
+                        return 132;
+                    }
+                    else
+                    {
+                        Output.Clear();
+                        Output.AppendText("Invalid Location. " + Environment.NewLine + user.Cruiser.Name + " could not be placed.");
+                        return -1;
+                    }
+                }
+
+                if (user.DestroyerActive)
+                {
+                    if (user.PlaceShip(row, column, user, ShipType.Destoryer))
+                    {
+                        Output.Clear();
+                        Output.AppendText(user.Destroyer.Name + " has been placed successfully");
+                        Output.AppendText(Environment.NewLine + Environment.NewLine + "ALL SHIPS HAVE BEEN PLACED.");
+                        return 12;
+                    }
+                    else
+                    {
+                        Output.Clear();
+                        Output.AppendText("Invalid Location. " + Environment.NewLine + user.Destroyer.Name + " could not be placed.");
+                        return -1;
+                    }
                 }
             }
 
-            if (user.BattleshipActive)
-            {
-                user.PlaceBattleShip(1, 1);
-            }
-
-            if (user.CruiserActive)
-            {
-                user.PlaceCruiser(1, 1);
-            }
-
-            if (user.SubmarinePlaced)
-            {
-                user.PlaceSubmarine(1, 1);
-            }
-
-            if (user.DestroyerPlaced)
-            {
-                user.PlaceDestroyer(1, 1);
-            }
+            //this will be the firing board
+            return 10;
         }
 
         //function to set ships
@@ -227,11 +284,7 @@ namespace BattleShip_FinalProject
             Output.AppendText("Destroyer Selected" + Environment.NewLine);
             Output.AppendText(Environment.NewLine + "Left edge is selected. Place the ship anywhere on the screen");
             //if selected move to 30 , 30 else return to previous position
-            Img_Destroyer.Location = new System.Drawing.Point(15, 15);
-            Img_Cruiser.Location = new System.Drawing.Point(330, 100);
-            Img_Submarine.Location = new System.Drawing.Point(315, 150);
-            Img_Battleship.Location = new System.Drawing.Point(280, 250);
-            Img_Cruiser.Location = new System.Drawing.Point(230, 330);
+            
 
             //ship has been selected
 
@@ -259,13 +312,6 @@ namespace BattleShip_FinalProject
             Output.Clear();
             Output.AppendText("Destroyer Selected" + Environment.NewLine);
             Output.AppendText(Environment.NewLine + "Left edge is selected. Place the ship anywhere on the screen");
-            //if selected move to 30 , 30 else return to previous position
-            Img_Destroyer.Location = new System.Drawing.Point(370, 35);
-            Img_Cruiser.Location = new System.Drawing.Point(15, 15);
-            Img_Submarine.Location = new System.Drawing.Point(315, 150);
-            Img_Battleship.Location = new System.Drawing.Point(280, 250);
-            Img_Cruiser.Location = new System.Drawing.Point(230, 330);
-
         }
 
         private void Submarine_Click(object sernder, EventArgs e)
@@ -273,12 +319,6 @@ namespace BattleShip_FinalProject
             Output.Clear();
             Output.AppendText("Destroyer Selected" + Environment.NewLine);
             Output.AppendText(Environment.NewLine + "Left edge is selected. Place the ship anywhere on the screen");
-            //if selected move to 30 , 30 else return to previous position
-            Img_Destroyer.Location = new System.Drawing.Point(370, 35);
-            Img_Cruiser.Location = new System.Drawing.Point(330, 100);
-            Img_Submarine.Location = new System.Drawing.Point(15, 15);
-            Img_Battleship.Location = new System.Drawing.Point(280, 250);
-            Img_Cruiser.Location = new System.Drawing.Point(230, 330);
         }
 
         private void Battleship_Click(object sernder, EventArgs e)
@@ -286,12 +326,6 @@ namespace BattleShip_FinalProject
             Output.Clear();
             Output.AppendText("Destroyer Selected" + Environment.NewLine);
             Output.AppendText(Environment.NewLine + "Left edge is selected. Place the ship anywhere on the screen");
-            //if selected move to 30 , 30 else return to previous position
-            Img_Destroyer.Location = new System.Drawing.Point(370, 35);
-            Img_Cruiser.Location = new System.Drawing.Point(330, 100);
-            Img_Submarine.Location = new System.Drawing.Point(315, 150);
-            Img_Battleship.Location = new System.Drawing.Point(15, 15);
-            Img_Cruiser.Location = new System.Drawing.Point(230, 330);
         }
 
         private void Carrier_Click(object sernder, EventArgs e)
@@ -301,13 +335,6 @@ namespace BattleShip_FinalProject
             Output.Clear();
             Output.AppendText("Destroyer Selected" + Environment.NewLine);
             Output.AppendText(Environment.NewLine + "Left edge is selected. Place the ship anywhere on the screen");
-            //if selected move to 30 , 30 else return to previous position
-            Img_Destroyer.Location = new System.Drawing.Point(370, 35);
-            Img_Cruiser.Location = new System.Drawing.Point(330, 100);
-            Img_Submarine.Location = new System.Drawing.Point(315, 150);
-            Img_Battleship.Location = new System.Drawing.Point(280, 250);
-            Img_Carrier.Location = new System.Drawing.Point(15, 15);
-
         }
 
         #endregion
@@ -318,11 +345,11 @@ namespace BattleShip_FinalProject
 
         #region A Row
 
-        public void A1_Click(object sernder, EventArgs e) { ButtonPressed(1, 1); }
+        public void A1_Click(object sernder, EventArgs e) { int ret_value; ret_value = ButtonPressed(1, 1); switch (ret_value) {case 15: this.Size = new System.Drawing.Size(390, 60); this.Text = "Aircraft Carrier"; break; case 14: this.Size = new System.Drawing.Size(); this.Text = "Battleship"; break; case 131: this.Size = new System.Drawing.Size(); this.Text = "Submarine"; break; case 132: this.Size = new System.Drawing.Size(); this.Text = "Cruiser"; break; case 12: this.Size = new System.Drawing.Size(); this.Text = "Destroyer"; break; case 10: break; case -1: break; } }
 
 
 
-        public void A2_Click(object sernder, EventArgs e) { ButtonPressed(2, 1); }
+        public void A2_Click(object sernder, EventArgs e) { int ret_value; ret_value = ButtonPressed(1, 1); switch (ret_value) {case 15: this.Size = new System.Drawing.Size(390, 60); this.Text = "Aircraft Carrier"; break; case 14: this.Size = new System.Drawing.Size(); this.Text = "Battleship"; break; case 131: this.Size = new System.Drawing.Size(); this.Text = "Submarine"; break; case 132: this.Size = new System.Drawing.Size(); this.Text = "Cruiser"; break; case 12: this.Size = new System.Drawing.Size(); this.Text = "Destroyer"; break; case 10: break; case -1: break; } }
 
 
 

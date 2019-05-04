@@ -16,7 +16,6 @@ namespace BattleShip_FinalProject
         public Cruiser Cruiser { get; set; }
         public Submarine Submarine { get; set; }
         public Destroyer Destroyer { get; set; }
-        public int ShipsPlaced { get; set; }
         public bool CarrierPlaced { get; set; }
         public bool BattleshipPlaced { get; set; }
         public bool CruiserPlaced { get; set; }
@@ -27,6 +26,17 @@ namespace BattleShip_FinalProject
         public bool CruiserActive { get; set; }
         public bool SubmarineActive { get; set; }
         public bool DestroyerActive { get; set; }
+        public bool ShipsPlaced
+        {
+            get
+            {
+                return CarrierPlaced
+                    && BattleshipPlaced
+                    && CruiserPlaced
+                    && SubmarinePlaced
+                    && DestroyerPlaced;
+            }
+        }
 
 
         //checks all the list to see if they are all sunk.
@@ -79,39 +89,89 @@ namespace BattleShip_FinalProject
 
 
 
-        #region Placing Ships Functions
-        //this places the Carrier class
-        public bool PlaceCarrier(int row, int column, Player player0)
+        //placing ships
+        public bool PlaceShip(int row, int column, Player player0, ShipType PlaceShip)
         {
-            int location = ((row - 1) * 10) + ((column % 10) -1);
+            int location = ((row - 1) * 10) + ((column % 10) - 1);
+            int shipWidth = 11;
+
+            switch (PlaceShip)
+            {
+                case ShipType.Carrier:
+                    shipWidth = Carrier.Width;
+                    break;
+                case ShipType.Battleship:
+                    shipWidth = Battleship.Width;
+                    break;
+                case ShipType.Submarine:
+                    shipWidth = Submarine.Width;
+                    break;
+                case ShipType.Cruiser:
+                    shipWidth = Cruiser.Width;
+                    break;
+                case ShipType.Destoryer:
+                    shipWidth = Destroyer.Width;
+                    break;
+            }
 
             //check if the button press is a value placment option
             if (!(player0.GameBoard.Panels[location].IsOccupied))
             {
-                
-                //check if there is space on the board to fit the ship
-                for (int panelcheck = 1; panelcheck < Carrier.Width; panelcheck++)
+                if(player0.GameBoard.Panels.Count < (location + shipWidth))
                 {
+                    return false;
+                }
+
+                //check if there is space on the board to fit the ship
+                for (int panelcheck = 1; panelcheck < shipWidth; panelcheck++)
+                {
+
                     //checks if panel is free or if location moved to a new row
-                    if (player0.GameBoard.Panels[location + panelcheck].IsOccupied || (player0.GameBoard.Panels[location + panelcheck].Coordinates.Row != player0.GameBoard.Panels[location + panelcheck - 1].Coordinates.Row))
+                    if (player0.GameBoard.Panels[location + panelcheck].IsOccupied  )
                     {
                         //there is not enough spaces to allow ship placement 
+                        return false;
+                    }                   
+                   
+                    if (player0.GameBoard.Panels[location + panelcheck].Coordinates.Row != player0.GameBoard.Panels[location + panelcheck - 1].Coordinates.Row)
+                    {
                         return false;
                     }
                 }
 
                 //place ship on empty panels
-                for (int placing = 0; placing < Carrier.Width; placing++)
+                for (int placing = 0; placing < shipWidth; placing++)
                 {
                     player0.GameBoard.Panels[location + placing].ShipType = ShipType.Carrier;
                 }
 
-
-                //place code
-                CarrierPlaced = true;
-                ShipsPlaced++;
-                CarrierActive = false;
-                BattleshipActive = true;
+                switch (PlaceShip)
+                {
+                    case ShipType.Carrier:
+                        CarrierPlaced = true;
+                        CarrierActive = false;
+                        BattleshipActive = true;
+                        break;
+                    case ShipType.Battleship:
+                        BattleshipPlaced = true;
+                        BattleshipActive = false;
+                        SubmarineActive = true;
+                        break;
+                    case ShipType.Submarine:
+                        SubmarinePlaced = true;
+                        SubmarineActive = false;
+                        CruiserActive = true;
+                        break;
+                    case ShipType.Cruiser:
+                        CruiserPlaced = true;
+                        CruiserActive = false;
+                        DestroyerActive = true;
+                        break;
+                    case ShipType.Destoryer:
+                        DestroyerPlaced = true;
+                        DestroyerActive = false;
+                        break;
+                }
 
                 //fucntion carried out successfully
                 return true;
@@ -121,89 +181,10 @@ namespace BattleShip_FinalProject
             return false;
         }
 
-        //this places the Balleship class
-        public int PlaceBattleShip(int row, int column )
-        {
-            if (1 != row /*button location*/)
-            {
-                //place code
-                BattleshipPlaced = true;
-                ShipsPlaced++;
-
-                //fucntion carried out successfully
-                return 1;
-            }
-            else
-            {
-                //button is not a valid placment poiunt
-                return -1;
-            }
-
-            
-        }
-
-        //this places the Cruiser class
-        public int PlaceCruiser(int row, int column )
-        {
-            if (1 != row /*button location*/)
-            {
-                //place code
-                CruiserPlaced = true;
-                ShipsPlaced++; ;
-
-                //fucntion carried out successfully
-                return 1;
-            }
-            else
-            {
-                //button is not a valid placment poiunt
-                return -1;
-            }
-
-            
-        }
-
-        //this places the Submarine class
-        public int PlaceSubmarine(int row, int column )
-        {
-
-            if (1 != row /*button location*/)
-            {
-                //place code
-                SubmarinePlaced = true;
-                ShipsPlaced++;
-
-                //fucntion carried out successfully
-                return 1;
-            }
-            else
-            {
-                //button is not a valid placment poiunt
-                return -1;
-            }
-            
-        }
-
-        //this places the Destroyer class
-        public int PlaceDestroyer(int row, int column )
-        {
-
-            if (1 != row /*button location*/)
-            {
-                //place code
-                DestroyerPlaced = true;
-                ShipsPlaced++;
-
-                //fucntion carried out successfully
-                return 1;
-            }
-            else
-            {
-                //button is not a valid placment poiunt
-                return -1;
-            }
-            
-        }
-        #endregion
+       
     }
 }
+
+
+
+//{ int ret_value; ret_value = ButtonPressed(1, 1); switch (ret_value) {case 15: this.Size = new System.Drawing.Size(390, 60); this.Text = "Aircraft Carrier"; break; case 14: this.Size = new System.Drawing.Size(); this.Text = "Battleship"; break; case 131: this.Size = new System.Drawing.Size(); this.Text = "Submarine"; break; case 132: this.Size = new System.Drawing.Size(); this.Text = "Cruiser"; break; case 12: this.Size = new System.Drawing.Size(); this.Text = "Destroyer"; break; case 10: break; case -1: break; } }
