@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BattleShip_FinalProject
 {
-    public class Player 
+    public class Player
     {
         public string PName { get; set; }
         public GameBoard GameBoard { get; set; }
@@ -26,6 +26,7 @@ namespace BattleShip_FinalProject
         public bool CruiserActive { get; set; }
         public bool SubmarineActive { get; set; }
         public bool DestroyerActive { get; set; }
+        public ActiveShip ActiveShip { get; set; }
         public bool ShipsPlaced
         {
             get
@@ -59,6 +60,7 @@ namespace BattleShip_FinalProject
             //import the Player Name
             PName = name;
 
+            ActiveShip = ActiveShip.Carrier;
             //create a collection of ships
             Carrier = new Carrier();
             CarrierPlaced = false;
@@ -117,7 +119,7 @@ namespace BattleShip_FinalProject
             //check if the button press is a value placment option
             if (!(player0.GameBoard.Panels[location].IsOccupied))
             {
-                if(player0.GameBoard.Panels.Count < (location + shipWidth))
+                if (player0.GameBoard.Panels.Count < (location + shipWidth))
                 {
                     return false;
                 }
@@ -127,12 +129,12 @@ namespace BattleShip_FinalProject
                 {
 
                     //checks if panel is free or if location moved to a new row
-                    if (player0.GameBoard.Panels[location + panelcheck].IsOccupied  )
+                    if (player0.GameBoard.Panels[location + panelcheck].IsOccupied)
                     {
                         //there is not enough spaces to allow ship placement 
                         return false;
-                    }                   
-                   
+                    }
+
                     if (player0.GameBoard.Panels[location + panelcheck].Coordinates.Row != player0.GameBoard.Panels[location + panelcheck - 1].Coordinates.Row)
                     {
                         return false;
@@ -151,25 +153,30 @@ namespace BattleShip_FinalProject
                         CarrierPlaced = true;
                         CarrierActive = false;
                         BattleshipActive = true;
+                        ActiveShip = ActiveShip.Battleship;
                         break;
                     case ShipType.Battleship:
                         BattleshipPlaced = true;
                         BattleshipActive = false;
                         SubmarineActive = true;
+                        ActiveShip = ActiveShip.Submarine;
                         break;
                     case ShipType.Submarine:
                         SubmarinePlaced = true;
                         SubmarineActive = false;
                         CruiserActive = true;
+                        ActiveShip = ActiveShip.Cruiser;
                         break;
                     case ShipType.Cruiser:
                         CruiserPlaced = true;
                         CruiserActive = false;
                         DestroyerActive = true;
+                        ActiveShip = ActiveShip.Destroyer;
                         break;
                     case ShipType.Destoryer:
                         DestroyerPlaced = true;
                         DestroyerActive = false;
+                        ActiveShip = ActiveShip.AllPlaced;
                         break;
                 }
 
@@ -181,10 +188,19 @@ namespace BattleShip_FinalProject
             return false;
         }
 
-       
-    }
+
+
+    
+
 }
 
-
-
-//{ int ret_value; ret_value = ButtonPressed(1, 1); switch (ret_value) {case 15: this.Size = new System.Drawing.Size(390, 60); this.Text = "Aircraft Carrier"; break; case 14: this.Size = new System.Drawing.Size(); this.Text = "Battleship"; break; case 131: this.Size = new System.Drawing.Size(); this.Text = "Submarine"; break; case 132: this.Size = new System.Drawing.Size(); this.Text = "Cruiser"; break; case 12: this.Size = new System.Drawing.Size(); this.Text = "Destroyer"; break; case 10: break; case -1: break; } }
+    public enum ActiveShip
+    {
+        Carrier,
+        Battleship,
+        Cruiser,
+        Submarine,
+        Destroyer,
+        AllPlaced
+    }
+}

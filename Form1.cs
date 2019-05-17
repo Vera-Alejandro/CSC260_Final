@@ -38,6 +38,7 @@ namespace BattleShip_FinalProject
 
 
 
+
             //after the placing function move the carrier back to the origional location
         }
 
@@ -77,7 +78,7 @@ namespace BattleShip_FinalProject
                     {
                         Output.Clear();
                         Output.AppendText("Invalid Location. " + Environment.NewLine + user.Battleship.Name + " could not be placed.");
-                        return -1; 
+                        return -1;
                     }
                 }
 
@@ -266,90 +267,17 @@ namespace BattleShip_FinalProject
             J10.Visible = true;
         }
 
-        //this function is working ,  Yay!
-        private void Destroyer_MouseHover(object sernder, EventArgs e)
-        {
-            Output.Clear();
-            Output.AppendText("Hover is working. Coninute to use in buttons");
-        }
-
-
-
-        //placing ships
-        #region Ship Functions
-        private void Destroyer_Click(object sernder, EventArgs e)
-        {
-            //Show what ship is selected
-            Output.Clear();
-            Output.AppendText("Destroyer Selected" + Environment.NewLine);
-            Output.AppendText(Environment.NewLine + "Left edge is selected. Place the ship anywhere on the screen");
-            //if selected move to 30 , 30 else return to previous position
-            
-
-            //ship has been selected
-
-
-
-
-            //for orientation I should add to the column or row 
-
-
-
-
-            //how would I go about rotating it
-            //I could have a variable and a button that is use to change the orientation of the ship
-            //enum maybe?
-            //move the ship image to the middle of the screen to show the orientation it will be placed in
-
-
-
-            //how would i take the button clicked output and have it as the place to place it.
-            //also how would I go about check it if it is a valid location
-        }
-
-        private void Cruiser_Click(object sernder, EventArgs e)
-        {
-            Output.Clear();
-            Output.AppendText("Destroyer Selected" + Environment.NewLine);
-            Output.AppendText(Environment.NewLine + "Left edge is selected. Place the ship anywhere on the screen");
-        }
-
-        private void Submarine_Click(object sernder, EventArgs e)
-        {
-            Output.Clear();
-            Output.AppendText("Destroyer Selected" + Environment.NewLine);
-            Output.AppendText(Environment.NewLine + "Left edge is selected. Place the ship anywhere on the screen");
-        }
-
-        private void Battleship_Click(object sernder, EventArgs e)
-        {
-            Output.Clear();
-            Output.AppendText("Destroyer Selected" + Environment.NewLine);
-            Output.AppendText(Environment.NewLine + "Left edge is selected. Place the ship anywhere on the screen");
-        }
-
-        private void Carrier_Click(object sernder, EventArgs e)
-        {
-            //clicking this should allow for the ships to be placed. But this should work the same for every ship
-            //Call a funciton to place everything
-            Output.Clear();
-            Output.AppendText("Destroyer Selected" + Environment.NewLine);
-            Output.AppendText(Environment.NewLine + "Left edge is selected. Place the ship anywhere on the screen");
-        }
-
-        #endregion
-
         //for buttons I want the screen to show where each ship is placed
         //maybe move the image over the button and disable the button so it cannot be placed
-        #region Button Funcitons
+        #region Button Functions
 
         #region A Row
 
-        public void A1_Click(object sernder, EventArgs e) { int ret_value; ret_value = ButtonPressed(1, 1); switch (ret_value) {case 15: this.Size = new System.Drawing.Size(390, 60); this.Text = "Aircraft Carrier"; break; case 14: this.Size = new System.Drawing.Size(); this.Text = "Battleship"; break; case 131: this.Size = new System.Drawing.Size(); this.Text = "Submarine"; break; case 132: this.Size = new System.Drawing.Size(); this.Text = "Cruiser"; break; case 12: this.Size = new System.Drawing.Size(); this.Text = "Destroyer"; break; case 10: break; case -1: break; } }
+        public void A1_Click(object sernder, EventArgs e) { ButtonPressed(1, 1); }
 
 
 
-        public void A2_Click(object sernder, EventArgs e) { int ret_value; ret_value = ButtonPressed(1, 1); switch (ret_value) {case 15: this.Size = new System.Drawing.Size(390, 60); this.Text = "Aircraft Carrier"; break; case 14: this.Size = new System.Drawing.Size(); this.Text = "Battleship"; break; case 131: this.Size = new System.Drawing.Size(); this.Text = "Submarine"; break; case 132: this.Size = new System.Drawing.Size(); this.Text = "Cruiser"; break; case 12: this.Size = new System.Drawing.Size(); this.Text = "Destroyer"; break; case 10: break; case -1: break; } }
+        public void A2_Click(object sernder, EventArgs e) { ButtonPressed(2, 1); }
 
 
 
@@ -798,14 +726,245 @@ namespace BattleShip_FinalProject
 
         public void J10_Click(object sernder, EventArgs e) { ButtonPressed(10, 10); }
 
-
-
-
         #endregion
 
         #endregion
 
 
 
+
+
+
+        private void MouseHover(object sender, EventArgs e)
+        {
+            Output.Clear();
+            Output.AppendText("this is a test..");
+        }
+        
+
+        #region Button Hover Functions
+
+        #region A Buttons
+
+        private void A1_MouseHover(object sernder, EventArgs e)
+        {
+            Output.Clear();
+            Output.AppendText("Moving Ship to A1");
+            switch (user.ActiveShip)
+            {
+                case ActiveShip.Carrier:
+                    Img_Carrier.Location = new System.Drawing.Point(A1.Location.X, A1.Location.Y);
+                    break;
+                case ActiveShip.Battleship:
+                    Img_Battleship.Location = new System.Drawing.Point(A1.Location.X, A1.Location.Y);
+                    break;
+                case ActiveShip.Cruiser:
+                    Img_Cruiser.Location = new System.Drawing.Point(A1.Location.X, A1.Location.Y);
+                    break;
+                case ActiveShip.Submarine:
+                    Img_Submarine.Location = new System.Drawing.Point(A1.Location.X, A1.Location.Y);
+                    break;
+                case ActiveShip.Destroyer:
+                    Img_Destroyer.Location = new System.Drawing.Point(A1.Location.X, A1.Location.Y);
+                    break;
+                case ActiveShip.AllPlaced:
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void A2_MouseHover(object sernder, EventArgs e)
+        {
+
+        }
+        private void A3_MouseHover(object sernder, EventArgs e)
+        {
+
+        }
+        private void A4_MouseHover(object sernder, EventArgs e)
+        {
+
+        }
+        private void A5_MouseHover(object sernder, EventArgs e)
+        {
+
+        }
+        private void A6_MouseHover(object sernder, EventArgs e)
+        {
+
+        }
+
+        private void A7_MouseHover(object sernder, EventArgs e)
+        {
+
+        }
+
+        private void A8_MouseHover(object sernder, EventArgs e)
+        {
+
+        }
+        private void A9_MouseHover(object sernder, EventArgs e)
+        {
+
+        }
+        private void A10_MouseHover(object sernder, EventArgs e)
+        {
+
+        }
+        #endregion
+
+        #region B Buttons
+
+        private void B1_MouseHover(object sernder, EventArgs e)
+        {
+
+        }
+        private void B2_MouseHover(object sernder, EventArgs e)
+        {
+
+        }
+        private void B3_MouseHover(object sernder, EventArgs e)
+        {
+
+        }
+        private void B4_MouseHover(object sernder, EventArgs e)
+        {
+
+        }
+        private void B5_MouseHover(object sernder, EventArgs e)
+        {
+
+        }
+        private void B6_MouseHover(object sernder, EventArgs e)
+        {
+
+        }
+        private void B7_MouseHover(object sernder, EventArgs e)
+        {
+
+        }
+        private void B8_MouseHover(object sernder, EventArgs e)
+        {
+
+        }
+        private void B19MouseHover(object sernder, EventArgs e)
+        {
+
+        }
+        private void B10_MouseHover(object sernder, EventArgs e)
+        {
+
+        }
+
+        #endregion
+
+        #region C Buttons
+
+        private void C1_MouseHover(object sernder, EventArgs e)
+        {
+
+        }
+        private void C2_MouseHover(object sernder, EventArgs e)
+        {
+
+        }
+        private void C3_MouseHover(object sernder, EventArgs e)
+        {
+
+        }
+        private void C4_MouseHover(object sernder, EventArgs e)
+        {
+
+        }
+        private void C5_MouseHover(object sernder, EventArgs e)
+        {
+
+        }
+        private void C6_MouseHover(object sernder, EventArgs e)
+        {
+
+        }
+        private void C7_MouseHover(object sernder, EventArgs e)
+        {
+
+        }
+        private void C8_MouseHover(object sernder, EventArgs e)
+        {
+
+        }
+        private void C9_MouseHover(object sernder, EventArgs e)
+        {
+
+        }
+        private void C10_MouseHover(object sernder, EventArgs e)
+        {
+
+        }
+
+        #endregion
+
+        #region D Buttons
+
+        private void D1_MouseHover(object sernder, EventArgs e)
+        {
+
+        }
+        private void D2_MouseHover(object sernder, EventArgs e)
+        {
+
+        }
+        private void D3_MouseHover(object sernder, EventArgs e)
+        {
+
+        }
+        private void D4_MouseHover(object sernder, EventArgs e)
+        {
+
+        }
+        private void D5_MouseHover(object sernder, EventArgs e)
+        {
+
+        }
+        private void D6_MouseHover(object sernder, EventArgs e)
+        {
+
+        }
+        private void D7_MouseHover(object sernder, EventArgs e)
+        {
+
+        }
+        private void D8_MouseHover(object sernder, EventArgs e)
+        {
+
+        }
+        private void D9_MouseHover(object sernder, EventArgs e)
+        {
+
+        }
+        private void D10_MouseHover(object sernder, EventArgs e)
+        {
+
+        }
+
+        #endregion
+
+        #endregion
+
+        private void PictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PictureBox1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Img_Cruiser_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
+

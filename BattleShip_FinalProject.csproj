@@ -115,9 +115,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Battleship.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Carrier.png" />
   </ItemGroup>
   <ItemGroup>
@@ -128,6 +125,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Submarine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Battleship.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Battleship.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

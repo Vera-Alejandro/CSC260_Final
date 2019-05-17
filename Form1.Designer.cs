@@ -13,7 +13,8 @@
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null))
+            if (disposing &
+			(components != null))
             {
                 components.Dispose();
             }
@@ -28,6 +29,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.Start = new System.Windows.Forms.Button();
             this.Title = new System.Windows.Forms.Label();
             this.A1 = new System.Windows.Forms.Button();
@@ -151,17 +153,17 @@
             this.C_Label = new System.Windows.Forms.Label();
             this.B_Label = new System.Windows.Forms.Label();
             this.Output = new System.Windows.Forms.TextBox();
-            this.Img_Carrier = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.Img_Battleship = new System.Windows.Forms.PictureBox();
+            this.Img_Cruiser = new System.Windows.Forms.PictureBox();
             this.Img_Submarine = new System.Windows.Forms.PictureBox();
             this.Img_Destroyer = new System.Windows.Forms.PictureBox();
-            this.Img_Cruiser = new System.Windows.Forms.PictureBox();
-            this.Img_Battleship = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.Img_Carrier)).BeginInit();
+            this.Img_Carrier = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.Img_Battleship)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Img_Cruiser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Img_Submarine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Img_Destroyer)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Img_Cruiser)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Img_Battleship)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Img_Carrier)).BeginInit();
             this.SuspendLayout();
             // 
             // Start
@@ -193,6 +195,7 @@
             this.A1.UseVisualStyleBackColor = true;
             this.A1.Visible = false;
             this.A1.Click += new System.EventHandler(this.A1_Click);
+            this.A1.MouseHover += new System.EventHandler(this.A1_MouseHover);
             // 
             // D7
             // 
@@ -203,6 +206,7 @@
             this.D7.UseVisualStyleBackColor = true;
             this.D7.Visible = false;
             this.D7.Click += new System.EventHandler(this.D7_Click);
+            this.D7.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // G4
             // 
@@ -213,6 +217,7 @@
             this.G4.UseVisualStyleBackColor = true;
             this.G4.Visible = false;
             this.G4.Click += new System.EventHandler(this.G4_Click);
+            this.G4.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // D4
             // 
@@ -223,6 +228,7 @@
             this.D4.UseVisualStyleBackColor = true;
             this.D4.Visible = false;
             this.D4.Click += new System.EventHandler(this.D4_Click);
+            this.D4.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // H8
             // 
@@ -233,6 +239,7 @@
             this.H8.UseVisualStyleBackColor = true;
             this.H8.Visible = false;
             this.H8.Click += new System.EventHandler(this.H8_Click);
+            this.H8.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // I7
             // 
@@ -243,6 +250,7 @@
             this.I7.UseVisualStyleBackColor = true;
             this.I7.Visible = false;
             this.I7.Click += new System.EventHandler(this.I7_Click);
+            this.I7.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // C3
             // 
@@ -253,6 +261,7 @@
             this.C3.UseVisualStyleBackColor = true;
             this.C3.Visible = false;
             this.C3.Click += new System.EventHandler(this.C3_Click);
+            this.C3.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // C8
             // 
@@ -263,6 +272,7 @@
             this.C8.UseVisualStyleBackColor = true;
             this.C8.Visible = false;
             this.C8.Click += new System.EventHandler(this.C8_Click);
+            this.C8.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // I9
             // 
@@ -273,6 +283,7 @@
             this.I9.UseVisualStyleBackColor = true;
             this.I9.Visible = false;
             this.I9.Click += new System.EventHandler(this.I9_Click);
+            this.I9.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // B9
             // 
@@ -283,6 +294,7 @@
             this.B9.UseVisualStyleBackColor = true;
             this.B9.Visible = false;
             this.B9.Click += new System.EventHandler(this.B9_Click);
+            this.B9.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // I2
             // 
@@ -293,6 +305,7 @@
             this.I2.UseVisualStyleBackColor = true;
             this.I2.Visible = false;
             this.I2.Click += new System.EventHandler(this.I2_Click);
+            this.I2.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // B2
             // 
@@ -303,6 +316,7 @@
             this.B2.UseVisualStyleBackColor = true;
             this.B2.Visible = false;
             this.B2.Click += new System.EventHandler(this.B2_Click);
+            this.B2.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // J3
             // 
@@ -313,6 +327,7 @@
             this.J3.UseVisualStyleBackColor = true;
             this.J3.Visible = false;
             this.J3.Click += new System.EventHandler(this.J3_Click);
+            this.J3.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // J2
             // 
@@ -323,6 +338,7 @@
             this.J2.UseVisualStyleBackColor = true;
             this.J2.Visible = false;
             this.J2.Click += new System.EventHandler(this.J2_Click);
+            this.J2.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // J7
             // 
@@ -333,6 +349,7 @@
             this.J7.UseVisualStyleBackColor = true;
             this.J7.Visible = false;
             this.J7.Click += new System.EventHandler(this.J7_Click);
+            this.J7.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // J8
             // 
@@ -343,6 +360,7 @@
             this.J8.UseVisualStyleBackColor = true;
             this.J8.Visible = false;
             this.J8.Click += new System.EventHandler(this.J8_Click);
+            this.J8.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // J9
             // 
@@ -353,6 +371,7 @@
             this.J9.UseVisualStyleBackColor = true;
             this.J9.Visible = false;
             this.J9.Click += new System.EventHandler(this.J9_Click);
+            this.J9.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // J10
             // 
@@ -363,6 +382,7 @@
             this.J10.UseVisualStyleBackColor = true;
             this.J10.Visible = false;
             this.J10.Click += new System.EventHandler(this.J10_Click);
+            this.J10.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // I10
             // 
@@ -373,6 +393,7 @@
             this.I10.UseVisualStyleBackColor = true;
             this.I10.Visible = false;
             this.I10.Click += new System.EventHandler(this.I10_Click);
+            this.I10.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // H10
             // 
@@ -383,6 +404,7 @@
             this.H10.UseVisualStyleBackColor = true;
             this.H10.Visible = false;
             this.H10.Click += new System.EventHandler(this.H10_Click);
+            this.H10.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // G10
             // 
@@ -393,6 +415,7 @@
             this.G10.UseVisualStyleBackColor = true;
             this.G10.Visible = false;
             this.G10.Click += new System.EventHandler(this.G10_Click);
+            this.G10.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // F10
             // 
@@ -403,6 +426,7 @@
             this.F10.UseVisualStyleBackColor = true;
             this.F10.Visible = false;
             this.F10.Click += new System.EventHandler(this.F10_Click);
+            this.F10.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // E10
             // 
@@ -413,6 +437,7 @@
             this.E10.UseVisualStyleBackColor = true;
             this.E10.Visible = false;
             this.E10.Click += new System.EventHandler(this.E10_Click);
+            this.E10.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // D10
             // 
@@ -423,6 +448,7 @@
             this.D10.UseVisualStyleBackColor = true;
             this.D10.Visible = false;
             this.D10.Click += new System.EventHandler(this.D10_Click);
+            this.D10.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // C10
             // 
@@ -433,6 +459,7 @@
             this.C10.UseVisualStyleBackColor = true;
             this.C10.Visible = false;
             this.C10.Click += new System.EventHandler(this.C10_Click);
+            this.C10.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // B10
             // 
@@ -443,6 +470,7 @@
             this.B10.UseVisualStyleBackColor = true;
             this.B10.Visible = false;
             this.B10.Click += new System.EventHandler(this.B10_Click);
+            this.B10.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // A10
             // 
@@ -453,6 +481,7 @@
             this.A10.UseVisualStyleBackColor = true;
             this.A10.Visible = false;
             this.A10.Click += new System.EventHandler(this.A10_Click);
+            this.A10.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // A9
             // 
@@ -463,6 +492,7 @@
             this.A9.UseVisualStyleBackColor = true;
             this.A9.Visible = false;
             this.A9.Click += new System.EventHandler(this.A9_Click);
+            this.A9.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // A8
             // 
@@ -473,6 +503,7 @@
             this.A8.UseVisualStyleBackColor = true;
             this.A8.Visible = false;
             this.A8.Click += new System.EventHandler(this.A8_Click);
+            this.A8.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // A7
             // 
@@ -483,6 +514,7 @@
             this.A7.UseVisualStyleBackColor = true;
             this.A7.Visible = false;
             this.A7.Click += new System.EventHandler(this.A7_Click);
+            this.A7.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // A6
             // 
@@ -493,6 +525,7 @@
             this.A6.UseVisualStyleBackColor = true;
             this.A6.Visible = false;
             this.A6.Click += new System.EventHandler(this.A6_Click);
+            this.A6.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // A5
             // 
@@ -503,6 +536,7 @@
             this.A5.UseVisualStyleBackColor = true;
             this.A5.Visible = false;
             this.A5.Click += new System.EventHandler(this.A5_Click);
+            this.A5.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // A4
             // 
@@ -513,6 +547,7 @@
             this.A4.UseVisualStyleBackColor = true;
             this.A4.Visible = false;
             this.A4.Click += new System.EventHandler(this.A4_Click);
+            this.A4.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // A3
             // 
@@ -523,6 +558,7 @@
             this.A3.UseVisualStyleBackColor = true;
             this.A3.Visible = false;
             this.A3.Click += new System.EventHandler(this.A3_Click);
+            this.A3.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // A2
             // 
@@ -533,6 +569,7 @@
             this.A2.UseVisualStyleBackColor = true;
             this.A2.Visible = false;
             this.A2.Click += new System.EventHandler(this.A2_Click);
+            this.A2.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // J1
             // 
@@ -543,6 +580,7 @@
             this.J1.UseVisualStyleBackColor = true;
             this.J1.Visible = false;
             this.J1.Click += new System.EventHandler(this.J1_Click);
+            this.J1.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // I1
             // 
@@ -553,6 +591,7 @@
             this.I1.UseVisualStyleBackColor = true;
             this.I1.Visible = false;
             this.I1.Click += new System.EventHandler(this.I1_Click);
+            this.I1.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // H1
             // 
@@ -563,6 +602,7 @@
             this.H1.UseVisualStyleBackColor = true;
             this.H1.Visible = false;
             this.H1.Click += new System.EventHandler(this.H1_Click);
+            this.H1.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // G1
             // 
@@ -573,6 +613,7 @@
             this.G1.UseVisualStyleBackColor = true;
             this.G1.Visible = false;
             this.G1.Click += new System.EventHandler(this.G1_Click);
+            this.G1.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // F1
             // 
@@ -583,6 +624,7 @@
             this.F1.UseVisualStyleBackColor = true;
             this.F1.Visible = false;
             this.F1.Click += new System.EventHandler(this.F1_Click);
+            this.F1.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // E1
             // 
@@ -593,6 +635,7 @@
             this.E1.UseVisualStyleBackColor = true;
             this.E1.Visible = false;
             this.E1.Click += new System.EventHandler(this.E1_Click);
+            this.E1.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // D1
             // 
@@ -603,6 +646,7 @@
             this.D1.UseVisualStyleBackColor = true;
             this.D1.Visible = false;
             this.D1.Click += new System.EventHandler(this.D1_Click);
+            this.D1.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // C1
             // 
@@ -613,6 +657,7 @@
             this.C1.UseVisualStyleBackColor = true;
             this.C1.Visible = false;
             this.C1.Click += new System.EventHandler(this.C1_Click);
+            this.C1.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // B1
             // 
@@ -623,6 +668,7 @@
             this.B1.UseVisualStyleBackColor = true;
             this.B1.Visible = false;
             this.B1.Click += new System.EventHandler(this.B1_Click);
+            this.B1.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // J6
             // 
@@ -633,6 +679,7 @@
             this.J6.UseVisualStyleBackColor = true;
             this.J6.Visible = false;
             this.J6.Click += new System.EventHandler(this.J6_Click);
+            this.J6.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // J5
             // 
@@ -643,6 +690,7 @@
             this.J5.UseVisualStyleBackColor = true;
             this.J5.Visible = false;
             this.J5.Click += new System.EventHandler(this.J5_Click);
+            this.J5.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // J4
             // 
@@ -653,6 +701,7 @@
             this.J4.UseVisualStyleBackColor = true;
             this.J4.Visible = false;
             this.J4.Click += new System.EventHandler(this.J4_Click);
+            this.J4.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // G7
             // 
@@ -663,6 +712,7 @@
             this.G7.UseVisualStyleBackColor = true;
             this.G7.Visible = false;
             this.G7.Click += new System.EventHandler(this.G7_Click);
+            this.G7.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // F5
             // 
@@ -673,6 +723,7 @@
             this.F5.UseVisualStyleBackColor = true;
             this.F5.Visible = false;
             this.F5.Click += new System.EventHandler(this.F5_Click);
+            this.F5.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // E6
             // 
@@ -683,6 +734,7 @@
             this.E6.UseVisualStyleBackColor = true;
             this.E6.Visible = false;
             this.E6.Click += new System.EventHandler(this.E6_Click);
+            this.E6.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // E5
             // 
@@ -693,6 +745,7 @@
             this.E5.UseVisualStyleBackColor = true;
             this.E5.Visible = false;
             this.E5.Click += new System.EventHandler(this.E5_Click);
+            this.E5.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // F6
             // 
@@ -703,6 +756,7 @@
             this.F6.UseVisualStyleBackColor = true;
             this.F6.Visible = false;
             this.F6.Click += new System.EventHandler(this.F6_Click);
+            this.F6.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // G6
             // 
@@ -713,6 +767,7 @@
             this.G6.UseVisualStyleBackColor = true;
             this.G6.Visible = false;
             this.G6.Click += new System.EventHandler(this.G6_Click);
+            this.G6.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // H6
             // 
@@ -723,6 +778,7 @@
             this.H6.UseVisualStyleBackColor = true;
             this.H6.Visible = false;
             this.H6.Click += new System.EventHandler(this.H6_Click);
+            this.H6.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // I6
             // 
@@ -733,6 +789,7 @@
             this.I6.UseVisualStyleBackColor = true;
             this.I6.Visible = false;
             this.I6.Click += new System.EventHandler(this.I6_Click);
+            this.I6.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // D6
             // 
@@ -743,6 +800,7 @@
             this.D6.UseVisualStyleBackColor = true;
             this.D6.Visible = false;
             this.D6.Click += new System.EventHandler(this.D6_Click);
+            this.D6.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // C6
             // 
@@ -753,6 +811,7 @@
             this.C6.UseVisualStyleBackColor = true;
             this.C6.Visible = false;
             this.C6.Click += new System.EventHandler(this.C6_Click);
+            this.C6.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // B6
             // 
@@ -763,6 +822,7 @@
             this.B6.UseVisualStyleBackColor = true;
             this.B6.Visible = false;
             this.B6.Click += new System.EventHandler(this.B6_Click);
+            this.B6.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // G5
             // 
@@ -773,6 +833,7 @@
             this.G5.UseVisualStyleBackColor = true;
             this.G5.Visible = false;
             this.G5.Click += new System.EventHandler(this.G5_Click);
+            this.G5.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // H5
             // 
@@ -783,6 +844,7 @@
             this.H5.UseVisualStyleBackColor = true;
             this.H5.Visible = false;
             this.H5.Click += new System.EventHandler(this.H5_Click);
+            this.H5.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // I5
             // 
@@ -793,6 +855,7 @@
             this.I5.UseVisualStyleBackColor = true;
             this.I5.Visible = false;
             this.I5.Click += new System.EventHandler(this.I5_Click);
+            this.I5.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // D5
             // 
@@ -803,6 +866,7 @@
             this.D5.UseVisualStyleBackColor = true;
             this.D5.Visible = false;
             this.D5.Click += new System.EventHandler(this.D5_Click);
+            this.D5.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // C5
             // 
@@ -813,6 +877,7 @@
             this.C5.UseVisualStyleBackColor = true;
             this.C5.Visible = false;
             this.C5.Click += new System.EventHandler(this.C5_Click);
+            this.C5.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // B5
             // 
@@ -823,6 +888,7 @@
             this.B5.UseVisualStyleBackColor = true;
             this.B5.Visible = false;
             this.B5.Click += new System.EventHandler(this.B5_Click);
+            this.B5.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // E4
             // 
@@ -833,6 +899,7 @@
             this.E4.UseVisualStyleBackColor = true;
             this.E4.Visible = false;
             this.E4.Click += new System.EventHandler(this.E4_Click);
+            this.E4.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // F4
             // 
@@ -843,6 +910,7 @@
             this.F4.UseVisualStyleBackColor = true;
             this.F4.Visible = false;
             this.F4.Click += new System.EventHandler(this.F4_Click);
+            this.F4.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // E3
             // 
@@ -853,6 +921,7 @@
             this.E3.UseVisualStyleBackColor = true;
             this.E3.Visible = false;
             this.E3.Click += new System.EventHandler(this.E3_Click);
+            this.E3.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // F3
             // 
@@ -863,6 +932,7 @@
             this.F3.UseVisualStyleBackColor = true;
             this.F3.Visible = false;
             this.F3.Click += new System.EventHandler(this.F3_Click);
+            this.F3.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // F2
             // 
@@ -873,6 +943,7 @@
             this.F2.UseVisualStyleBackColor = true;
             this.F2.Visible = false;
             this.F2.Click += new System.EventHandler(this.F2_Click);
+            this.F2.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // E2
             // 
@@ -883,6 +954,7 @@
             this.E2.UseVisualStyleBackColor = true;
             this.E2.Visible = false;
             this.E2.Click += new System.EventHandler(this.E2_Click);
+            this.E2.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // E7
             // 
@@ -893,6 +965,7 @@
             this.E7.UseVisualStyleBackColor = true;
             this.E7.Visible = false;
             this.E7.Click += new System.EventHandler(this.E7_Click);
+            this.E7.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // F7
             // 
@@ -903,6 +976,7 @@
             this.F7.UseVisualStyleBackColor = true;
             this.F7.Visible = false;
             this.F7.Click += new System.EventHandler(this.F7_Click);
+            this.F7.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // F8
             // 
@@ -913,6 +987,7 @@
             this.F8.UseVisualStyleBackColor = true;
             this.F8.Visible = false;
             this.F8.Click += new System.EventHandler(this.F8_Click);
+            this.F8.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // E8
             // 
@@ -923,6 +998,7 @@
             this.E8.UseVisualStyleBackColor = true;
             this.E8.Visible = false;
             this.E8.Click += new System.EventHandler(this.E8_Click);
+            this.E8.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // F9
             // 
@@ -933,6 +1009,7 @@
             this.F9.UseVisualStyleBackColor = true;
             this.F9.Visible = false;
             this.F9.Click += new System.EventHandler(this.F9_Click);
+            this.F9.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // E9
             // 
@@ -943,6 +1020,7 @@
             this.E9.UseVisualStyleBackColor = true;
             this.E9.Visible = false;
             this.E9.Click += new System.EventHandler(this.E9_Click);
+            this.E9.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // H7
             // 
@@ -953,6 +1031,7 @@
             this.H7.UseVisualStyleBackColor = true;
             this.H7.Visible = false;
             this.H7.Click += new System.EventHandler(this.H7_Click);
+            this.H7.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // G8
             // 
@@ -963,6 +1042,7 @@
             this.G8.UseVisualStyleBackColor = true;
             this.G8.Visible = false;
             this.G8.Click += new System.EventHandler(this.G8_Click);
+            this.G8.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // C7
             // 
@@ -973,6 +1053,7 @@
             this.C7.UseVisualStyleBackColor = true;
             this.C7.Visible = false;
             this.C7.Click += new System.EventHandler(this.C7_Click);
+            this.C7.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // D8
             // 
@@ -983,6 +1064,7 @@
             this.D8.UseVisualStyleBackColor = true;
             this.D8.Visible = false;
             this.D8.Click += new System.EventHandler(this.D8_Click);
+            this.D8.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // C4
             // 
@@ -993,6 +1075,7 @@
             this.C4.UseVisualStyleBackColor = true;
             this.C4.Visible = false;
             this.C4.Click += new System.EventHandler(this.C4_Click);
+            this.C4.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // D3
             // 
@@ -1003,6 +1086,7 @@
             this.D3.UseVisualStyleBackColor = true;
             this.D3.Visible = false;
             this.D3.Click += new System.EventHandler(this.D3_Click);
+            this.D3.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // G3
             // 
@@ -1013,6 +1097,7 @@
             this.G3.UseVisualStyleBackColor = true;
             this.G3.Visible = false;
             this.G3.Click += new System.EventHandler(this.G3_Click);
+            this.G3.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // H4
             // 
@@ -1023,6 +1108,7 @@
             this.H4.UseVisualStyleBackColor = true;
             this.H4.Visible = false;
             this.H4.Click += new System.EventHandler(this.H4_Click);
+            this.H4.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // I4
             // 
@@ -1033,6 +1119,7 @@
             this.I4.UseVisualStyleBackColor = true;
             this.I4.Visible = false;
             this.I4.Click += new System.EventHandler(this.I4_Click);
+            this.I4.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // I3
             // 
@@ -1043,6 +1130,7 @@
             this.I3.UseVisualStyleBackColor = true;
             this.I3.Visible = false;
             this.I3.Click += new System.EventHandler(this.I3_Click);
+            this.I3.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // B3
             // 
@@ -1053,6 +1141,7 @@
             this.B3.UseVisualStyleBackColor = true;
             this.B3.Visible = false;
             this.B3.Click += new System.EventHandler(this.B3_Click);
+            this.B3.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // D2
             // 
@@ -1063,6 +1152,7 @@
             this.D2.UseVisualStyleBackColor = true;
             this.D2.Visible = false;
             this.D2.Click += new System.EventHandler(this.D2_Click);
+            this.D2.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // G2
             // 
@@ -1073,6 +1163,7 @@
             this.G2.UseVisualStyleBackColor = true;
             this.G2.Visible = false;
             this.G2.Click += new System.EventHandler(this.G2_Click);
+            this.G2.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // G9
             // 
@@ -1083,6 +1174,7 @@
             this.G9.UseVisualStyleBackColor = true;
             this.G9.Visible = false;
             this.G9.Click += new System.EventHandler(this.G9_Click);
+            this.G9.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // D9
             // 
@@ -1093,6 +1185,7 @@
             this.D9.UseVisualStyleBackColor = true;
             this.D9.Visible = false;
             this.D9.Click += new System.EventHandler(this.D9_Click);
+            this.D9.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // B7
             // 
@@ -1103,6 +1196,7 @@
             this.B7.UseVisualStyleBackColor = true;
             this.B7.Visible = false;
             this.B7.Click += new System.EventHandler(this.B7_Click);
+            this.B7.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // H3
             // 
@@ -1113,6 +1207,7 @@
             this.H3.UseVisualStyleBackColor = true;
             this.H3.Visible = false;
             this.H3.Click += new System.EventHandler(this.H3_Click);
+            this.H3.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // H2
             // 
@@ -1123,6 +1218,7 @@
             this.H2.UseVisualStyleBackColor = true;
             this.H2.Visible = false;
             this.H2.Click += new System.EventHandler(this.H2_Click);
+            this.H2.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // C2
             // 
@@ -1133,6 +1229,7 @@
             this.C2.UseVisualStyleBackColor = true;
             this.C2.Visible = false;
             this.C2.Click += new System.EventHandler(this.C2_Click);
+            this.C2.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // B4
             // 
@@ -1143,6 +1240,7 @@
             this.B4.UseVisualStyleBackColor = true;
             this.B4.Visible = false;
             this.B4.Click += new System.EventHandler(this.B4_Click);
+            this.B4.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // C9
             // 
@@ -1153,6 +1251,7 @@
             this.C9.UseVisualStyleBackColor = true;
             this.C9.Visible = false;
             this.C9.Click += new System.EventHandler(this.C9_Click);
+            this.C9.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // B8
             // 
@@ -1163,6 +1262,7 @@
             this.B8.UseVisualStyleBackColor = true;
             this.B8.Visible = false;
             this.B8.Click += new System.EventHandler(this.B8_Click);
+            this.B8.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // I8
             // 
@@ -1173,6 +1273,7 @@
             this.I8.UseVisualStyleBackColor = true;
             this.I8.Visible = false;
             this.I8.Click += new System.EventHandler(this.I8_Click);
+            this.I8.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // H9
             // 
@@ -1183,6 +1284,7 @@
             this.H9.UseVisualStyleBackColor = true;
             this.H9.Visible = false;
             this.H9.Click += new System.EventHandler(this.H9_Click);
+            this.H9.MouseHover += new System.EventHandler(this.MouseHover);
             // 
             // A_Label
             // 
@@ -1412,61 +1514,6 @@
             this.Output.Size = new System.Drawing.Size(215, 175);
             this.Output.TabIndex = 127;
             // 
-            // Img_Carrier
-            // 
-            this.Img_Carrier.Image = global::BattleShip_FinalProject.Properties.Resources.Carrier;
-            this.Img_Carrier.Location = new System.Drawing.Point(1086, 400);
-            this.Img_Carrier.Name = "Img_Carrier";
-            this.Img_Carrier.Size = new System.Drawing.Size(246, 76);
-            this.Img_Carrier.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.Img_Carrier.TabIndex = 129;
-            this.Img_Carrier.TabStop = false;
-            this.Img_Carrier.Visible = false;
-            // 
-            // Img_Submarine
-            // 
-            this.Img_Submarine.Image = global::BattleShip_FinalProject.Properties.Resources.Submarine;
-            this.Img_Submarine.Location = new System.Drawing.Point(1168, 548);
-            this.Img_Submarine.Name = "Img_Submarine";
-            this.Img_Submarine.Size = new System.Drawing.Size(164, 90);
-            this.Img_Submarine.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.Img_Submarine.TabIndex = 131;
-            this.Img_Submarine.TabStop = false;
-            this.Img_Submarine.Visible = false;
-            // 
-            // Img_Destroyer
-            // 
-            this.Img_Destroyer.Image = global::BattleShip_FinalProject.Properties.Resources.Destroyer;
-            this.Img_Destroyer.Location = new System.Drawing.Point(1218, 686);
-            this.Img_Destroyer.Name = "Img_Destroyer";
-            this.Img_Destroyer.Size = new System.Drawing.Size(115, 54);
-            this.Img_Destroyer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.Img_Destroyer.TabIndex = 132;
-            this.Img_Destroyer.TabStop = false;
-            this.Img_Destroyer.Visible = false;
-            // 
-            // Img_Cruiser
-            // 
-            this.Img_Cruiser.Image = global::BattleShip_FinalProject.Properties.Resources.Cruiser;
-            this.Img_Cruiser.Location = new System.Drawing.Point(1184, 631);
-            this.Img_Cruiser.Name = "Img_Cruiser";
-            this.Img_Cruiser.Size = new System.Drawing.Size(148, 50);
-            this.Img_Cruiser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.Img_Cruiser.TabIndex = 130;
-            this.Img_Cruiser.TabStop = false;
-            this.Img_Cruiser.Visible = false;
-            // 
-            // Img_Battleship
-            // 
-            this.Img_Battleship.Image = global::BattleShip_FinalProject.Properties.Resources.Battleship;
-            this.Img_Battleship.Location = new System.Drawing.Point(1133, 482);
-            this.Img_Battleship.Name = "Img_Battleship";
-            this.Img_Battleship.Size = new System.Drawing.Size(199, 72);
-            this.Img_Battleship.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.Img_Battleship.TabIndex = 128;
-            this.Img_Battleship.TabStop = false;
-            this.Img_Battleship.Visible = false;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -1477,17 +1524,63 @@
             this.label1.TabIndex = 133;
             this.label1.Text = "Placed Ships";
             // 
+            // Img_Battleship
+            // 
+            this.Img_Battleship.Image = ((System.Drawing.Image)(resources.GetObject("Img_Battleship.Image")));
+            this.Img_Battleship.Location = new System.Drawing.Point(974, 485);
+            this.Img_Battleship.Name = "Img_Battleship";
+            this.Img_Battleship.Size = new System.Drawing.Size(258, 60);
+            this.Img_Battleship.TabIndex = 0;
+            this.Img_Battleship.TabStop = false;
+            // 
+            // Img_Cruiser
+            // 
+            this.Img_Cruiser.Image = global::BattleShip_FinalProject.Properties.Resources.Cruiser;
+            this.Img_Cruiser.Location = new System.Drawing.Point(974, 617);
+            this.Img_Cruiser.Name = "Img_Cruiser";
+            this.Img_Cruiser.Size = new System.Drawing.Size(190, 60);
+            this.Img_Cruiser.TabIndex = 1;
+            this.Img_Cruiser.TabStop = false;
+            this.Img_Cruiser.Click += new System.EventHandler(this.Img_Cruiser_Click);
+            // 
+            // Img_Submarine
+            // 
+            this.Img_Submarine.Image = global::BattleShip_FinalProject.Properties.Resources.Submarine;
+            this.Img_Submarine.Location = new System.Drawing.Point(974, 551);
+            this.Img_Submarine.Name = "Img_Submarine";
+            this.Img_Submarine.Size = new System.Drawing.Size(190, 60);
+            this.Img_Submarine.TabIndex = 2;
+            this.Img_Submarine.TabStop = false;
+            // 
+            // Img_Destroyer
+            // 
+            this.Img_Destroyer.Image = global::BattleShip_FinalProject.Properties.Resources.Destroyer;
+            this.Img_Destroyer.Location = new System.Drawing.Point(974, 683);
+            this.Img_Destroyer.Name = "Img_Destroyer";
+            this.Img_Destroyer.Size = new System.Drawing.Size(126, 60);
+            this.Img_Destroyer.TabIndex = 3;
+            this.Img_Destroyer.TabStop = false;
+            // 
+            // Img_Carrier
+            // 
+            this.Img_Carrier.Image = global::BattleShip_FinalProject.Properties.Resources.Carrier;
+            this.Img_Carrier.Location = new System.Drawing.Point(1008, 399);
+            this.Img_Carrier.Name = "Img_Carrier";
+            this.Img_Carrier.Size = new System.Drawing.Size(324, 60);
+            this.Img_Carrier.TabIndex = 4;
+            this.Img_Carrier.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1482, 853);
-            this.Controls.Add(this.Img_Cruiser);
             this.Controls.Add(this.Img_Battleship);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.Img_Carrier);
+            this.Controls.Add(this.Img_Cruiser);
             this.Controls.Add(this.Img_Submarine);
             this.Controls.Add(this.Img_Destroyer);
+            this.Controls.Add(this.Img_Carrier);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.Output);
             this.Controls.Add(this.B_Label);
             this.Controls.Add(this.C_Label);
@@ -1614,11 +1707,11 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.Img_Carrier)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Img_Battleship)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Img_Cruiser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Img_Submarine)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Img_Destroyer)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Img_Cruiser)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Img_Battleship)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Img_Carrier)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1753,12 +1846,12 @@
         private System.Windows.Forms.Label I_Label;
         private System.Windows.Forms.Label J_Label;
         private System.Windows.Forms.TextBox Output;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox Img_Carrier;
-        private System.Windows.Forms.PictureBox Img_Submarine;
         private System.Windows.Forms.PictureBox Img_Destroyer;
+        private System.Windows.Forms.PictureBox Img_Submarine;
         private System.Windows.Forms.PictureBox Img_Cruiser;
         private System.Windows.Forms.PictureBox Img_Battleship;
-        private System.Windows.Forms.Label label1;
     }
 }
 
